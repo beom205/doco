@@ -1,4 +1,4 @@
-package com.doco.domain;
+package com.doco.service;
 
 public class del {
 
