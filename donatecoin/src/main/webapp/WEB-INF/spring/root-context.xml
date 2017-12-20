@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<bean class="com.doco.service.MemberService">
+		<property name ="ds" ref="dataSource"></property>
+	</bean>
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	     <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	     <property name="url" value="jdbc:mysql://192.168.0.32:3306/java97_db?useSSL=false"></property>
+	     <property name="username" value="java97"></property>
+	     <property name="password" value="java97"></property>
+	 </bean>
+	 
+	 <!-- MyBatis-Spring 연결코드 -->
+	 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	 </bean>
+	 
+	 <!-- Mybatis로 매퍼 스캔 연결 -->
+	 <mybatis-spring:scan base-package="com.doco.mappers" />
+	 
+		
+</beans>
