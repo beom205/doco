@@ -1,5 +1,16 @@
 package com.doco.mappers;
 
-public interface CampaignMapper {
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
 
+import com.doco.domain.Campaign;
+
+public interface CampaignMapper {
+	
+	@Insert("insert into dtb_campaign (cno, title, content, clat, clng, cvideo, cpicture, start_date, end_date, reg_date) "
+			+ "values (#{cno}, #{title}, #{content}, #{clat}, #{clng}, #{cvideo}, #{cpicture}, #{start_date}, #{end_date}, #{reg_date})")
+	public void register(Campaign c);
+	
+	@Select("select * from dtb_campaign where cno=#{cno}")
+	public Campaign read(int cno);
 }
