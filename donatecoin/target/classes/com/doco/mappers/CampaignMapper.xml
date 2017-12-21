@@ -9,7 +9,9 @@
 	  </select>
 	  
 	  <insert id="create">
-	  	insert into dtb_campaign (cno, title, content, clat, clng, cvideo, cpicture, start_date, end_date, reg_date) values
-	  	(#{cno}, #{title}, #{content}, #{clat}, #{clng}, #{cvideo}, #{cpicture}, #{start_date}, #{end_date}, #{reg_date})
+	  	insert into dtb_campaign
+	  		(cno, title, content, clat, clng, cvideo, cpicture, start_date, end_date, reg_date) 
+	  	values 
+	  		(#{cno}, #{title}, #{content}, #{clat}, #{clng}, #{cvideo}, #{cpicture}, #{start_date}, #{end_date}, #{reg_date})
 	  </insert>
   </mapper>

@@ -9,6 +9,6 @@ public class Campaign {
 	
 	private int cno;
 	private String title, content, cvideo, cpicture;
-	private double rlat, rlng; //rlat : 위도 ,  rlng : 경도
+	private double clat, clng; //rlat : 위도 ,  rlng : 경도
 	private Date start_date, end_date, reg_date;
 } 

@@ -1,7 +1,6 @@
 package com.doco.web;
 
 import javax.inject.Inject;
-import javax.sql.DataSource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,20 +15,16 @@ import com.doco.mappers.CampaignMapper;
 public class CampaignTest {
 
 	@Inject
-	DataSource ds;
-	
-	@Inject
 	CampaignMapper cMapper;
 	
 	@Test
-	public void testCreate() throws Exception {
+	public void testCreate() {
 		
 		Campaign c = new Campaign();
-		c.setCno(1);
 		c.setTitle("캠페인 제목");
 		c.setContent("캠페인 내용");
-		c.setRlat(1.111);
-		c.setRlng(1.111);
+		c.setClat(1.111);
+		c.setClng(1.111);
 		c.setCvideo("c://file/video");
 		c.setCpicture("c://file/picture");
 		cMapper.register(c);
