@@ -6,6 +6,13 @@
   <mapper namespace="com.doco.mappers.MemberMapper">
 	  <select id="getTime" resultType="string">
 	  	select now();
-	  </select>  
+	  </select>
+	  
+	  <insert id="create">
+	  	insert into dtb_member
+	  	       (id, password, name, level, tel, email)
+	  	values
+	  		(#{id}, #{password}, #{name}, #{level}, #{tel}, #{email})
+	  </insert>  
   </mapper>
   
