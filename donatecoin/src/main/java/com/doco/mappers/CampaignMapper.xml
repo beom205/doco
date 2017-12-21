@@ -14,4 +14,12 @@
 	  	values 
 	  		(#{cno}, #{title}, #{content}, #{clat}, #{clng}, #{cvideo}, #{cpicture}, #{start_date}, #{end_date}, #{reg_date})
 	  </insert>
+	  
+	  <select id="read" resultType="com.doco.domain.Campaign">
+	  	select
+		cno, title, content, clat, clng, cvideo, cpicture, start_date, end_date, reg_date
+		from
+		dtb_campaign
+		where cno = #{cno}
+	  </select>
   </mapper>

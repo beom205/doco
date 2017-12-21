@@ -11,6 +11,5 @@ public interface CampaignMapper extends CRUDMapper<Campaign, Integer>{
 			+ "values (#{cno}, #{title}, #{content}, #{clat}, #{clng}, #{cvideo}, #{cpicture}, #{start_date}, #{end_date}, #{reg_date})")
 	public void register(Campaign c);
 	
-	@Select("select * from dtb_campaign where cno=#{cno}")
-	public Campaign read(int cno);
+
 }
