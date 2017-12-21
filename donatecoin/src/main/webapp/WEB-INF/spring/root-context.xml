@@ -13,7 +13,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	     <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-	     <property name="url" value="jdbc:mysql://192.168.0.32:3306/java97_db?useSSL=false"></property>
+	     <property name="url" value="jdbc:mysql://192.168.0.32:3306/doco?useSSL=false"></property>
 	     <property name="username" value="java97"></property>
 	     <property name="password" value="java97"></property>
 	 </bean>

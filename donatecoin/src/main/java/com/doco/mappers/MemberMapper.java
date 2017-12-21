@@ -1,8 +1,8 @@
 package com.doco.mappers;
 
-import org.apache.ibatis.annotations.Select;
+import com.doco.domain.Member;
 
-public interface MemberMapper {
+public interface MemberMapper extends CRUDMapper<Member, Integer>{
 	
 	
 	public String getTime();
