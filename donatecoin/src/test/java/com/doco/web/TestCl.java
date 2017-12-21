@@ -32,7 +32,7 @@ public class TestCl {
 	@Test
 	public void connectionTest() throws Exception{
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://192.168.0.32:3306/java97_db";				
+		String url = "jdbc:mysql://192.168.0.32:3306/doco";				
 		String user = "java97";
 		String pw = "java97";
 		
