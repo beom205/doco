@@ -59,4 +59,6 @@ public class TestCl {
 	public void getTimeTestWithXML() {
 		System.out.println(mMapper.getTime());
 	}
+	
+	
 }
