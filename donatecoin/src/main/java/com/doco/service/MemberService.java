@@ -1,17 +1,8 @@
 package com.doco.service;
 
-import javax.sql.DataSource;
+import com.doco.domain.Member;
 
-import lombok.Setter;
 
-@Setter
-public class MemberService {
-	
-	private DataSource ds;
-	
-	
-	
-	public String test() {
-		return "hello World";
-	}
+public interface MemberService {
+	public Member login(Member member);
 }

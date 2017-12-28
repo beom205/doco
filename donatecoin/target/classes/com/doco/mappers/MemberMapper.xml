@@ -3,7 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+  
+
   <mapper namespace="com.doco.mappers.MemberMapper">
+   
 	  <select id="getTime" resultType="string">
 	  	select now();
 	  </select>
@@ -14,5 +17,17 @@
 	  	values
 	  		(#{id}, #{password}, #{name}, #{level}, #{tel}, #{email})
 	  </insert>  
+	  
+	  <select id="read" resultType="member">
+	  	select * from dtb_member where no = #{no}
+	  </select>
+	  
+	  <select id="login" resultType="member">
+	  	select id, password, name, level 
+	  	  from dtb_member 
+	  	 where id = #{id} and password = #{password}
+	  </select>
+	  
+	  
   </mapper>
   
