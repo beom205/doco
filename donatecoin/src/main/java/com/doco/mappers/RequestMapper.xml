@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.doco.mappers.RequestMapper">
+   
+  <!-- 
+  <select id="read" resultType="Request">
+		select * from dtd_donation_req where no = #{no}
+	</select> -->
+  
+  <!-- 
+  <insert id="create">
+  	insert into dtb_donation_req(period, password, title, content, comments, address, progress,lat,lng)
+			 values(#{period},#{password},#{title},#{content},#{comments},#{address},#{progress},#{lat},#{lng})
+  </insert>-->
+  
+  <insert id="create">
+  	insert into dtd_donation_req(title,content,address)
+		values(#{title},#{content},#{address})
+  </insert>
+  
+  <select id="read" resultType="Request">
+  	select * from dtd_donation_req where no = #{no} 
+  </select>
+  
+  	<select id="listAll" resultType="Request">
+		select * from dtd_donation_req where no > 0 order by no desc
+	</select>
+  
+  <update id="update">
+  	update dtb_donation_req
+  	set period = #{period},
+  		password = #{password},
+  		title = #{title},
+  		content = #{content},
+  		comments = #{comments},
+  		address = #{address},
+  		progress = #{progress},s
+	  		lat = #{lat},
+	  		lng = #{lng}
+  	where no = #{no}			  		
+  </update>
+  
+  <delete id ="delete">
+	  delete from dtb_donation_req where no = #{no}
+  </delete>
+  
+  </mapper>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
