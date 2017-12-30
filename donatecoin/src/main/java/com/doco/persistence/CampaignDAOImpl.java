@@ -17,7 +17,7 @@ public class CampaignDAOImpl implements CampaignDAO {
 	private SqlSession session;
 	
 	private static String namespace 
-	 = "com.doco.mapper.BoardMapper";
+	 = "com.doco.mapper.CampaignMapper";
 	
 	
 	@Override

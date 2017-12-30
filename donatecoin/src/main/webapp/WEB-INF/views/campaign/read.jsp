@@ -17,24 +17,24 @@
 
 				<form role="form" method="post">
 
-					<input type='hidden' name='bno' value="${boardVO.bno}">
+					<input type='hidden' name='bno' value="${campaign.bno}">
 
 				</form>
 
 				<div class="box-body">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Title</label> <input type="text"
-							name='title' class="form-control" value="${boardVO.title}"
+							name='title' class="form-control" value="${campaign.title}"
 							readonly="readonly">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Content</label>
 						<textarea class="form-control" name="content" rows="3"
-							readonly="readonly">${boardVO.content}</textarea>
+							readonly="readonly">${campaign.content}</textarea>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Writer</label> <input type="text"
-							name="writer" class="form-control" value="${boardVO.writer}"
+							name="writer" class="form-control" value="${campaign.writer}"
 							readonly="readonly">
 					</div>
 				</div>

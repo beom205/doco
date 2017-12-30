@@ -74,7 +74,7 @@ public class CampaignController {
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
-		return "redirect:/board/listPage";
+		return "redirect:/campaign/listPage";
 	}
 	
 	// 페이징 처리
@@ -108,7 +108,7 @@ public class CampaignController {
 			
 		rttr.addFlashAttribute("msg", "SUCCESS");
 			
-		return "redirect:/board/listAll";
+		return "redirect:/campaign/listAll";
 	}
 	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
 	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) throws Exception {
@@ -119,7 +119,7 @@ public class CampaignController {
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addFlashAttribute("msg", "SUCCESS");
 			
-		return "redirect:/board/listPage";
+		return "redirect:/campaign/listPage";
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -134,7 +134,7 @@ public class CampaignController {
 		rttr.addFlashAttribute("msg", "success");
 
 		// return "/board/success";
-		return "redirect:/board/listPage";
+		return "redirect:/campaign/listPage";
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
@@ -145,6 +145,6 @@ public class CampaignController {
 		service.register(board);
 		rttr.addFlashAttribute("msg", "success");
 
-		return "redirect:/board/listAll";
+		return "redirect:/campaign/listAll";
 	}
 }
