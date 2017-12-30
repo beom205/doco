@@ -22,12 +22,17 @@
 	 <!-- MyBatis-Spring 연결코드 -->
 	 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-			<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
 	 </bean>
-	 
+	 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>	
+	</bean>
+	
 	 <!-- Mybatis로 매퍼 스캔 연결 -->
 	 <mybatis-spring:scan base-package="com.doco.mappers" />
 	 
 	 <!-- 스프링 프로젝트에 서비스 등록  -->
+	 <context:component-scan base-package="com.doco.persistence"></context:component-scan>
 	 <context:component-scan base-package="com.doco.service"></context:component-scan>	
 </beans>
