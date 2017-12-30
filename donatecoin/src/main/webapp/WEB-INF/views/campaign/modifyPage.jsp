@@ -62,7 +62,7 @@
 												.on(
 														"click",
 														function() {
-															self.location = "/board/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}";
+															self.location = "/campaign/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}";
 														});
 
 										$(".btn-primary").on("click",

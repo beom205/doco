@@ -55,7 +55,7 @@
 		console.log(formObj);
 
 		$(".btn-warning").on("click", function() {
-			self.location = "/board/listAll";
+			self.location = "/campaign/listAll";
 		});
 
 		$(".btn-primary").on("click", function() {

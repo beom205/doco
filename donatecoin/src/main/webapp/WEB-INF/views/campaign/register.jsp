@@ -12,7 +12,14 @@
 	background-color: lightslategrey;
 	margin: auto;
 }
+
+iframe {
+	width: 0px;
+	height: 0px;
+	border: 0px
+}
 </style>
+
 
 <!-- Main content -->
 <section class="content">
@@ -22,29 +29,39 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">CAMPAIGN BOARD</h3>
+					<h3 class="box-title">캠페인 등록하기</h3>
 				</div>
 				<!-- /.box-header -->
 
 				<form id='registerForm' role="form" method="post">
 					<div class="box-body">
 						<div class="form-group">
-							<label for="exampleInputEmail1">CAMPAIGN TITLE</label> <input type="text"
+							<div class="form-group">
+								<label for="exampleInputEmail1">캠페인 글쓴이</label> <input
+									type="text" name="writer" class="form-control"
+									placeholder="Enter Writer">
+							</div>
+							<label for="exampleInputEmail1">캠페인 제목</label> <input type="text"
 								name='title' class="form-control" placeholder="Enter Title">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputPassword1">CAMPAIGN CONTENT</label>
+							<label for="exampleInputPassword1">캠페인 내용</label>
 							<textarea class="form-control" name="content" rows="3"
 								placeholder="Enter ..."></textarea>
 						</div>
+
 						<div class="form-group">
-							<label for="exampleInputEmail1">CAMPAIGN WRITER</label> <input type="text"
-								name="writer" class="form-control" placeholder="Enter Writer">
+							<label for="exampleInputEmail1">캠페인 사진</label>
+							<div class="fileDrop"></div>
 						</div>
 
 						<div class="form-group">
-							<label for="exampleInputEmail1">File DROP Here</label>
-							<div class="fileDrop"></div>
+							<label for="exampleInputEmail1">캠페인 동영상</label>
+							<form id='form1' action="uploadForm" method="post" enctype="multipart/form-data" target="zeroFrame">
+								<input type='file' name='file'> <input type='submit'>
+							</form>
+ 
+							<iframe name="zeroFrame"></iframe>
 						</div>
 					</div>
 
@@ -86,7 +103,7 @@
   <div class="mailbox-attachment-info">
 	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
 	<a href="{{fullName}}" 
-     class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
+     class="btn btn-default btn-xs pull-right delbtn"><i cl	ass="fa fa-fw fa-remove"></i></a>
 	</span>
   </div>
 </li>                
@@ -138,4 +155,9 @@ $("#registerForm").submit(function(event){
 	that.append(str);
 	that.get(0).submit();
 });
+
+function addFilePath(msg) {
+	alert(msg);
+	document.getElementById("form1").reset();
+}
 </script>
