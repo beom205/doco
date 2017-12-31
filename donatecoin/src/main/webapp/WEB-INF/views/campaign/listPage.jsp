@@ -100,8 +100,6 @@
 
 						</ul>
 					</div> 
-
-
 				</div>
 				<!-- /.box-footer-->
 			</div>
