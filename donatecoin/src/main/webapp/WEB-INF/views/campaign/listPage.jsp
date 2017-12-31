@@ -48,7 +48,7 @@
 
 				<div class="box-footer">
 
-					<%-- <div class="text-center">
+					<div class="text-center">
 						<ul class="pagination">
 
 							<c:if test="${pageMaker.prev}">
@@ -70,10 +70,10 @@
 							</c:if>
 
 						</ul>
-					</div> --%>
+					</div>
 
 
-					<div class="text-center">
+					<%-- <div class="text-center">
 						<ul class="pagination">
 
 							<c:if test="${pageMaker.prev}">
@@ -94,7 +94,7 @@
 							</c:if>
 
 						</ul>
-					</div>
+					</div> --%>
 
 
 				</div>

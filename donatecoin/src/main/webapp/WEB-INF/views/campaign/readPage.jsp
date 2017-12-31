@@ -23,17 +23,17 @@
 
 				<div class="box-body">
 					<div class="form-group">
-						<label for="exampleInputEmail1">Title</label> <input type="text"
+						<label for="exampleInputEmail1">제목</label> <input type="text"
 							name='title' class="form-control" value="${campaign.title}"
 							readonly="readonly">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword1">Content</label>
+						<label for="exampleInputPassword1">내용</label>
 						<textarea class="form-control" name="content" rows="3"
 							readonly="readonly">${campaign.content}</textarea>
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Writer</label> <input type="text"
+						<label for="exampleInputEmail1">작성자</label> <input type="text"
 							name="writer" class="form-control" value="${campaign.writer}"
 							readonly="readonly">
 					</div>
@@ -62,12 +62,12 @@ $(document).ready(function(){
 	});
 	
 	$(".btn-danger").on("click", function(){
-		formObj.attr("action", "/campaign/remove");
+		formObj.attr("action", "/campaign/removePage");
 		formObj.submit();
 	});
 	
 	$(".btn-primary").on("click", function(){
-		self.location = "/campaign/listAll";
+		self.location = "/campaign/listPage";
 	});
 	
 });
@@ -88,4 +88,3 @@ $(document).ready(function(){
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-

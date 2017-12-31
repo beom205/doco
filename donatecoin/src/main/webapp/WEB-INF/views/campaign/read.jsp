@@ -67,7 +67,7 @@ $(document).ready(function(){
 	});
 	
 	$(".btn-primary").on("click", function(){
-		self.location = "/campaign/listAll";
+		self.location = "/campaign/listPage";
 	});
 	
 });

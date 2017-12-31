@@ -35,12 +35,12 @@ public class CampaignController {
 	}
 	
 	// 전체목록
-	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/listAll", method = RequestMethod.GET)
 	public void listAll(Model model) throws Exception {
 
 		logger.info("show all list...................");
 		model.addAttribute("list", service.listAll());
-	}
+	}*/
 
 	// 조회하기
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
@@ -108,7 +108,7 @@ public class CampaignController {
 			
 		rttr.addFlashAttribute("msg", "SUCCESS");
 			
-		return "redirect:/campaign/listAll";
+		return "redirect:/campaign/listPage";
 	}
 	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
 	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) throws Exception {
@@ -145,6 +145,6 @@ public class CampaignController {
 		service.register(board);
 		rttr.addFlashAttribute("msg", "success");
 
-		return "redirect:/campaign/listAll";
+		return "redirect:/campaign/listPage";
 	}
 }
