@@ -61,7 +61,7 @@
 		console.log(formObj);
 
 		$(".btn-warning").on("click", function() {
-			self.location = "/campaign/listAll";
+			self.location = "/campaign/listPage";
 		});
 
 		$(".btn-primary").on("click", function() {

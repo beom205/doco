@@ -59,14 +59,14 @@ iframe {
 							<div class="fileDrop"></div>
 						</div>
 
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label for="exampleInputEmail1">캠페인 동영상</label>
 							<form id='form1' action="uploadForm" method="post" enctype="multipart/form-data" target="zeroFrame">
 								<input type='file' name='file'> <input type='submit'>
 							</form>
  
 							<iframe name="zeroFrame"></iframe>
-						</div>
+						</div> -->
 					</div>
 
 					<!-- /.box-body -->
@@ -116,9 +116,11 @@ iframe {
 <script>
 
 var template = Handlebars.compile($("#template").html());
+
 $(".fileDrop").on("dragenter dragover", function(event){
 	event.preventDefault();
 });
+
 $(".fileDrop").on("drop", function(event){
 	event.preventDefault();
 	
@@ -145,7 +147,7 @@ $(".fileDrop").on("drop", function(event){
 			  
 			  $(".uploadedList").append(html);
 		  }
-		});	
+		});
 });
 $("#registerForm").submit(function(event){
 	event.preventDefault();

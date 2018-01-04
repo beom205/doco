@@ -3,11 +3,44 @@
 
 <%@include file="../include/header.jsp"%>
 
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
+
+<style type="text/css">
+.popup {
+	position: absolute;
+}
+
+.back {
+	background-color: gray;
+	opacity: 0.5;
+	width: 100%;
+	height: 300%;
+	overflow: hidden;
+	z-index: 1101;
+}
+
+.front {
+	z-index: 1110;
+	opacity: 1;
+	boarder: 1px;
+	margin: auto;
+}
+
+.show {
+	position: relative;
+	max-width: 1200px;
+	max-height: 800px;
+	overflow: auto;
+}
+</style>
+
+<div class='popup back' style="display: none;"></div>
+<div id="popup_front" class='popup front' style="display: none;">
+	<img id="popup_img">
+</div>
+
 <!-- Main content -->
 <section class="content">
 	<div class="row">
@@ -51,9 +84,20 @@
 					<button type="submit" class="btn btn-primary">LIST ALL</button>
 				</div>
 
+			</div>
+			<!-- /.box -->
+		</div>
+		<!--/.col (left) -->
 
-				<script>
-				
+	</div>
+	<!-- /.row -->
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<script>
+
 $(document).ready(function(){
 	
 	var formObj = $("form[role='form']");
@@ -77,19 +121,54 @@ $(document).ready(function(){
 	
 });
 
+
+var bno = ${campaign.bno};
+var template = Handlebars.compile($("#templateAttach").html());
+
+$.getJSON("/campaign/getAttach/"+bno,function(list){
+	$(list).each(function(){
+		
+		var fileInfo = getFileInfo(this);
+		
+		var html = template(fileInfo);
+		
+		 $(".uploadedList").append(html);
+		
+	});
+});
+
+$(".uploadedList").on("click", ".mailbox-attachment-info a", function(event){
+	
+	var fileLink = $(this).attr("href");
+	
+	if(checkImageType(fileLink)){
+		
+		event.preventDefault();
+				
+		var imgTag = $("#popup_img");
+		imgTag.attr("src", fileLink);
+		
+		console.log(imgTag.attr("src"));
+				
+		$(".popup").show('slow');
+		imgTag.addClass("show");		
+	}	
+});
+
+$("#popup_img").on("click", function(){
+	
+	$(".popup").hide('slow');
+	
+});
+
 </script>
 
-
-
-
-			</div>
-			<!-- /.box -->
-		</div>
-		<!--/.col (left) -->
-
-	</div>
-	<!-- /.row -->
-</section>
-<!-- /.content -->
+<script id="templateAttach" type="text/x-handlebars-template">
+<li data-src='{{fullName}}'>
+<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+<div class="mailbox-attachment-info">
+<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+</span>
 </div>
-<!-- /.content-wrapper -->
+</li>                
+</script>

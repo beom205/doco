@@ -6,27 +6,30 @@
 <mapper namespace="com.doco.mapper.CampaignMapper">
 
 	<insert id="create">
-		insert into dtb_campaign (title, content, writer) values 
+		insert into dtb_campaign (title, content, writer)
+		values
 		(#{title}, #{content}, #{writer})
 	</insert>
 
 	<select id="read" resultType="com.doco.domain.Campaign">
 		select
-		bno, title, content, writer, regdate, viewcnt
+		bno, title, content, writer,
+		regdate, viewcnt
 		from
 		dtb_campaign
 		where bno=#{bno}
 	</select>
 
 	<update id="update">
-		update dtb_campaign set title = #{title}, content = #{content}
+		update dtb_campaign set title = #{title}, content =
+		#{content}
 		where bno = #{bno}
 	</update>
-	
+
 	<delete id="delete">
 		delete from dtb_campaign where bno = #{bno}
 	</delete>
-	
+
 	<select id="listAll" resultType="com.doco.domain.Campaign">
 		<![CDATA[
 		select
@@ -37,7 +40,7 @@
 		order by bno desc, regdate desc
 		]]>
 	</select>
-	
+
 	<select id="listPage" resultType="Campaign">
 		<![CDATA[
 		select
@@ -49,7 +52,7 @@
 		limit #{page}, 10
 		]]>
 	</select>
-	
+
 	<select id="listCriteria" resultType="Campaign">
 		<![CDATA[
 		select
@@ -61,7 +64,7 @@
 		limit #{pageStart}, #{perPageNum}
 		]]>
 	</select>
-	
+
 	<select id="countPaging" resultType="int">
 	    <![CDATA[
 	    select
@@ -71,5 +74,13 @@
 	    where
 	    bno > 0
 		]]>
+	</select>
+
+	<insert id="addAttach">
+		insert into dtb_attach(fullname, bno) values (#{fullname}, LAST_INSERT_ID())
+	</insert>
+
+	<select id="getAttach" resultType="string">
+		select fullname from dtb_attach where bno = #{bno} order by regdate
 	</select>
 </mapper>

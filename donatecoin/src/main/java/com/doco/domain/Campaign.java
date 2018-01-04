@@ -8,7 +8,15 @@ public class Campaign {
 	private Integer bno, viewcnt;
 	private String title, content, writer;
 	private Date regdate;
+	private String[] files;
 	
+	
+	public String[] getFiles() {
+		return files;
+	}
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
 	public Integer getBno() {
 		return bno;
 	}

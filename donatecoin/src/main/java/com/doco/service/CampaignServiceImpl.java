@@ -5,17 +5,36 @@ import javax.inject.Inject;
 import com.doco.domain.Campaign;
 import com.doco.domain.Criteria;
 import com.doco.persistence.CampaignDAO;
-import org.springframework.stereotype.Service;
 
+import lombok.extern.java.Log;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Log
 @Service
 public class CampaignServiceImpl implements CampaignService{
 	
 	@Inject
 	private CampaignDAO dao;
 
+	@Transactional
 	@Override
 	public void register(Campaign board) throws Exception {
+		
+		log.info("서비스 등록 들어옴");
+		
 		dao.create(board);
+		
+		String[] files = board.getFiles();
+		
+		if(files == null) { return; }
+		
+		for(String fileName : files) {
+			dao.addAttach(fileName);
+		}
+		
+		log.info(files+"처리됨");
 	}
 
 	@Override
@@ -47,4 +66,10 @@ public class CampaignServiceImpl implements CampaignService{
 	public int listCountCriteria(Criteria cri) throws Exception {
 		return dao.countPaging(cri);
 	}
+
+	@Override
+	public List<String> getAttach(Integer bno) throws Exception {
+		return dao.getAttach(bno);
+	}
+
 }

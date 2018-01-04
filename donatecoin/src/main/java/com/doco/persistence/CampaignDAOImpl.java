@@ -10,6 +10,9 @@ import org.springframework.stereotype.Repository;
 import com.doco.domain.Campaign;
 import com.doco.domain.Criteria;
 
+import lombok.extern.java.Log;
+
+@Log
 @Repository
 public class CampaignDAOImpl implements CampaignDAO {
 	
@@ -22,6 +25,8 @@ public class CampaignDAOImpl implements CampaignDAO {
 	
 	@Override
 	public void create(Campaign vo) throws Exception {
+		log.info("들어옴");
+
 		session.insert(namespace+".create", vo);
 	}
 
@@ -66,6 +71,17 @@ public class CampaignDAOImpl implements CampaignDAO {
 	@Override
 	public int countPaging(Criteria cri) throws Exception {
 		return session.selectOne(namespace+".countPaging", cri);
+	}
+
+	@Override
+	public void addAttach(String fullName) throws Exception {
+		log.info("들어옴");
+		session.insert(namespace+".addAttach", fullName);
+	}
+
+	@Override
+	public List<String> getAttach(Integer bno) throws Exception {
+		return session.selectList(namespace+".getAttach", bno);
 	}
  
 }

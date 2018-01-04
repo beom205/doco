@@ -21,4 +21,7 @@ public void register(Campaign board)throws Exception;
 	public List<Campaign> listCriteria(Criteria cri)throws Exception;
 	
 	public int listCountCriteria(Criteria cri)throws Exception;
+	
+	public List<String> getAttach(Integer bno)throws Exception;
+	
 }
