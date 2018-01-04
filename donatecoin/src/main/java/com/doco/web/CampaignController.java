@@ -32,7 +32,7 @@ public class CampaignController {
 
 	// 동록하기
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void registerGET(Campaign board, Model model) throws Exception {
+	public void registerGET() throws Exception {
 
 		logger.info("register get...................");
 	}

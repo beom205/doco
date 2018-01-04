@@ -75,7 +75,7 @@ public class CampaignDAOImpl implements CampaignDAO {
 
 	@Override
 	public void addAttach(String fullName) throws Exception {
-		log.info("들어옴");
+		log.info(fullName+"들어옴");
 		session.insert(namespace+".addAttach", fullName);
 	}
 
