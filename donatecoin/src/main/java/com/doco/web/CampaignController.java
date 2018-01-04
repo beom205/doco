@@ -1,5 +1,6 @@
 package com.doco.web;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -136,6 +137,12 @@ public class CampaignController {
 
 		logger.info("register post.................,");
 		logger.info(board.toString());
+		
+		logger.info("=================================");
+		if(board.getFiles() != null) {
+			
+			logger.info(""+ Arrays.toString(board.getFiles()));
+		}
 
 		service.register(board);
 

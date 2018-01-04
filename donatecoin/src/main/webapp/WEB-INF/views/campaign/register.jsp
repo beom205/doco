@@ -63,10 +63,10 @@ iframe {
 							<label for="exampleInputEmail1">캠페인 동영상</label>
 							<form id='form1' action="uploadForm" method="post" enctype="multipart/form-data" target="zeroFrame">
 								<input type='file' name='file'> <input type='submit'>
-							</form>
+							</form>  -->
  
 							<iframe name="zeroFrame"></iframe>
-						</div> -->
+						</div>
 					</div>
 
 					<!-- /.box-body -->
