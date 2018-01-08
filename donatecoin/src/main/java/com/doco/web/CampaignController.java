@@ -1,9 +1,11 @@
 package com.doco.web;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -19,12 +21,14 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.doco.domain.Campaign;
@@ -150,12 +154,19 @@ public class CampaignController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerPOST(Campaign board, RedirectAttributes rttr) throws Exception {
+	public String registerPOST(Campaign board, RedirectAttributes rttr, MultipartFile video) throws Exception {
 
 		logger.info("register post.................,");
 		logger.info(board.toString());
 
 		logger.info("=================================");
+
+		//동영상
+		logger.info("originalName: " + video.getOriginalFilename());
+		String savedName = uploadFile(video.getOriginalFilename(), video.getBytes());
+		//동여상 끝
+		
+		
 		if (board.getFiles() != null) {
 
 			logger.info("" + Arrays.toString(board.getFiles()));
@@ -226,6 +237,53 @@ public class CampaignController {
 			in.close();
 		}
 		return entity;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/displayMovie")
+	public ResponseEntity<byte[]> displayMovie(String name) throws Exception {
+
+		InputStream in = null;
+		ResponseEntity<byte[]> entity = null;
+
+		logger.info("FILE NAME: " + name);
+
+		try {
+
+			HttpHeaders headers = new HttpHeaders();
+
+			in = new FileInputStream(uploadPath + "\\" + name);
+
+			logger.info("uoloadPath" + uploadPath);
+
+			headers.add("Content-Type", "video/mp4");
+
+			// HttpStatus.OK : 보여주기 , HttpStatus.create : 다운받기
+			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.OK);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+		} finally {
+			in.close();
+		}
+		return entity;
+	}
+	
+	private String uploadFile(String originalName, byte[] fileData) throws Exception {
+
+		UUID uid = UUID.randomUUID();
+
+		// String savedName = uid.toString() + "_" + originalName;
+
+		String savedName = "movie.mp4";
+
+		File target = new File(uploadPath, savedName);
+
+		FileCopyUtils.copy(fileData, target);
+
+		return savedName;
+
 	}
 
 }

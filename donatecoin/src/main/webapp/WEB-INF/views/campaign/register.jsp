@@ -3,10 +3,9 @@
 
 <%@include file="../include/header.jsp"%>
 
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
 
 <style>
 .fileDrop {
@@ -37,7 +36,7 @@ iframe {
 				</div>
 				<!-- /.box-header -->
 
-				<form id='registerForm' role="form" method="post">
+				<form id='registerForm' role="form" method="post" enctype="multipart/form-data">
 					<div class="box-body">
 						<div class="form-group">
 							<div class="form-group">
@@ -58,36 +57,30 @@ iframe {
 							<label for="exampleInputEmail1">캠페인 사진</label>
 							<div class="fileDrop"></div>
 						</div>
-						
-						<div class="form-group">
-							<label for="exampleInputEmail1">캠페인 동영상</label>
-							<div class="fileDrop"></div>
-						</div>
-
-							<iframe name="zeroFrame"></iframe>
-						</div>
+							<input type='file' name='video'>
 					</div>
+			</div>
 
-					<!-- /.box-body -->
+			<!-- /.box-body -->
 
-					<div class="box-footer">
-						<div>
-							<hr>
-						</div>
+			<div class="box-footer">
+				<div>
+					<hr>
+				</div>
 
-						<ul class="mailbox-attachments clearfix uploadedList">
-						</ul>
+				<ul class="mailbox-attachments clearfix uploadedList">
+				</ul>
 
-						<button type="submit" class="btn btn-primary">Submit</button>
-
-					</div>
-				</form>
-
+				<button type="submit" class="btn btn-primary">Submit</button>
 
 			</div>
-			<!-- /.box -->
+			</form>
+
+
 		</div>
-		<!--/.col (left) -->
+		<!-- /.box -->
+	</div>
+	<!--/.col (left) -->
 
 	</div>
 	<!-- /.row -->
@@ -114,56 +107,56 @@ iframe {
 
 <script>
 
-var template = Handlebars.compile($("#template").html());
+	var template = Handlebars.compile($("#template").html());
 
-$(".fileDrop").on("dragenter dragover", function(event){
-	event.preventDefault();
-});
-
-$(".fileDrop").on("drop", function(event){
-	event.preventDefault();
-	
-	var files = event.originalEvent.dataTransfer.files;
-	
-	var file = files[0];
-	var formData = new FormData();
-	
-	formData.append("file", file);	
-	
-	
-	$.ajax({
-		  url: '/uploadAjax',
-		  data: formData,
-		  dataType:'text',
-		  processData: false,
-		  contentType: false,
-		  type: 'POST',
-		  success: function(data){
-			  
-			  var fileInfo = getFileInfo(data);
-			  
-			  var html = template(fileInfo);
-			  
-			  $(".uploadedList").append(html);
-		  }
-		});
-});
-$("#registerForm").submit(function(event){
-	event.preventDefault();
-	
-	var that = $(this);
-	
-	var str ="";
-	$(".uploadedList .delbtn").each(function(index){
-		 str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
+	$(".fileDrop").on("dragenter dragover", function(event) {
+		event.preventDefault();
 	});
-	
-	that.append(str);
-	that.get(0).submit();
-});
 
-function addFilePath(msg) {
-	alert(msg);
-	document.getElementById("form1").reset();
-}
+	$(".fileDrop").on("drop", function(event) {
+		event.preventDefault();
+
+		var files = event.originalEvent.dataTransfer.files;
+
+		var file = files[0];
+		var formData = new FormData();
+
+		formData.append("file", file);
+
+
+		$.ajax({
+			url : '/uploadAjax',
+			data : formData,
+			dataType : 'text',
+			processData : false,
+			contentType : false,
+			type : 'POST',
+			success : function(data) {
+
+				var fileInfo = getFileInfo(data);
+
+				var html = template(fileInfo);
+
+				$(".uploadedList").append(html);
+			}
+		});
+	});
+	$("#registerForm").submit(function(event) {
+		event.preventDefault();
+
+		var that = $(this);
+
+		var str = "";
+		$(".uploadedList .delbtn").each(function(index) {
+			str += "<input type='hidden' name='files[" + index + "]' value='" + $(this).attr("href") + "'> ";
+		});
+
+		that.append(str);
+		that.get(0).submit();
+	});
+
+	function addFilePath(msg) {
+		alert(msg);
+		document.getElementById("form1").reset();
+	}
 </script>
