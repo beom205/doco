@@ -28,4 +28,8 @@ public interface CampaignDAO {
 	
 	public List<String> getAttach(Integer bno)throws Exception;
 	
+	 public void deleteAttach(Integer bno)throws Exception;
+	  
+	public void replaceAttach(String fullName, Integer bno) throws Exception;
+
 }

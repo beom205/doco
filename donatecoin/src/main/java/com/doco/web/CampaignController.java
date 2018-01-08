@@ -1,13 +1,22 @@
 package com.doco.web;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import com.doco.web.CampaignController;
+
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,12 +31,16 @@ import com.doco.domain.Campaign;
 import com.doco.domain.Criteria;
 import com.doco.domain.PageMaker;
 import com.doco.service.CampaignService;
+import com.doco.util.MediaUtils;
 
 @Controller
 @RequestMapping("/campaign/*")
 public class CampaignController {
 	private static final Logger logger = LoggerFactory.getLogger(CampaignController.class);
-
+	
+	@Resource(name = "uploadPath")
+	private String uploadPath;
+	
 	@Inject
 	private CampaignService service;
 
@@ -50,14 +63,18 @@ public class CampaignController {
 	// 조회하기
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
-
+		logger.info("aaaaa");
 		model.addAttribute(service.read(bno));
 	}
 
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
+		logger.info("bbbbb");
+		logger.info(""+service.getAttach(bno));
 
-		model.addAttribute(service.read(bno));
+		model.addAttribute("campaign1", service.read(bno));
+		model.addAttribute("campaign2", service.getAttach(bno));
+		
 	}
 
 	// 수정하기
@@ -137,11 +154,11 @@ public class CampaignController {
 
 		logger.info("register post.................,");
 		logger.info(board.toString());
-		
+
 		logger.info("=================================");
-		if(board.getFiles() != null) {
-			
-			logger.info(""+ Arrays.toString(board.getFiles()));
+		if (board.getFiles() != null) {
+
+			logger.info("" + Arrays.toString(board.getFiles()));
 		}
 
 		service.register(board);
@@ -170,4 +187,45 @@ public class CampaignController {
 
 		return service.getAttach(bno);
 	}
+
+	// 미리보기
+	@ResponseBody
+	@RequestMapping("/displayFile")
+	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception {
+
+		InputStream in = null;
+		ResponseEntity<byte[]> entity = null;
+
+		logger.info("FILE NAME: " + fileName);
+
+		try {
+
+			String formatName = fileName.substring(fileName.lastIndexOf(".") + 1);
+
+			MediaType mType = MediaUtils.getMediaType(formatName);
+
+			HttpHeaders headers = new HttpHeaders();
+
+			in = new FileInputStream(uploadPath + fileName);
+
+			if (mType != null) {
+				headers.setContentType(mType);
+			} else {
+
+				fileName = fileName.substring(fileName.indexOf("_") + 1);
+				headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+				headers.add("Content-Disposition",
+						"attachment; filename=\"" + new String(fileName.getBytes("UTF-8"), "ISO-8859-1") + "\"");
+			}
+
+			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.CREATED);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+		} finally {
+			in.close();
+		}
+		return entity;
+	}
+
 }

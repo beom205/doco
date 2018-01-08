@@ -9,6 +9,7 @@ import com.doco.persistence.CampaignDAO;
 import lombok.extern.java.Log;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Log
@@ -36,21 +37,36 @@ public class CampaignServiceImpl implements CampaignService{
 		
 		log.info(files+"처리됨");
 	}
-
+	
 	@Override
 	public Campaign read(Integer bno) throws Exception {
 		return dao.read(bno);
 	}
 
-	@Override
-	public void modify(Campaign board) throws Exception {
-		dao.update(board);
-	}
+	@Transactional
+	  @Override
+	  public void modify(Campaign board) throws Exception {
+	    dao.update(board);
+	    
+	    Integer bno = board.getBno();
+	    
+	    dao.deleteAttach(bno);
+	    
+	    String[] files = board.getFiles();
+	    
+	    if(files == null) { return; } 
+	    
+	    for (String fileName : files) {
+	      dao.replaceAttach(fileName, bno);
+	    }
+	  }
 
-	@Override
-	public void remove(Integer bno) throws Exception {
-		dao.delete(bno);
-	}
+	@Transactional
+	  @Override
+	  public void remove(Integer bno) throws Exception {
+	    dao.deleteAttach(bno);
+	    dao.delete(bno);
+	  }
 
 	@Override
 	public List<Campaign> listAll() throws Exception {

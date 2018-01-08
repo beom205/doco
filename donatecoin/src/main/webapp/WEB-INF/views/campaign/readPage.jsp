@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <%@include file="../include/header.jsp"%>
+<script type="text/javascript" src="/resources/js/upload.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
 	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -49,55 +55,67 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">READ BOARD</h3>
+					<h3 class="box-title">캠페인 정보</h3>
 				</div>
 				<!-- /.box-header -->
 
 				<form role="form" method="post">
 
-					<input type='hidden' name='bno' value="${campaign.bno}">
+					<input type='hidden' name='bno' value="${bno}">
 
 				</form>
 
 				<div class="box-body">
 					<div class="form-group">
 						<label for="exampleInputEmail1">제목</label> <input type="text"
-							name='title' class="form-control" value="${campaign.title}"
+							name='title' class="form-control" value="${campaign1.title}"
 							readonly="readonly">
 					</div>
+
 					<div class="form-group">
 						<label for="exampleInputPassword1">내용</label>
 						<textarea class="form-control" name="content" rows="3"
-							readonly="readonly">${campaign.content}</textarea>
+							readonly="readonly">${campaign1.content}</textarea>
 					</div>
+
 					<div class="form-group">
 						<label for="exampleInputEmail1">작성자</label> <input type="text"
-							name="writer" class="form-control" value="${campaign.writer}"
+							name="writer" class="form-control" value="${campaign1.writer}"
 							readonly="readonly">
 					</div>
 				</div>
 				<!-- /.box-body -->
-
+				
 				<div class="box-footer">
+
+					<div>
+						<hr>
+					</div>
+					
+					<ul class="mail	box-attachments clearfix uploadList">
+						<c:forEach items="${campaign2}" var="cp">
+							<img src="displayFile?fileName=${cp}"/>
+						</c:forEach>
+					</ul>
+					
+					<ul class="mail	box-attachments clearfix uploadList">
+						<c:forEach items="${campaign2}" var="cp">
+							<img src="displayFile?fileName=${cp}"/>
+						</c:forEach>
+					</ul>
+					
 					<button type="submit" class="btn btn-warning">Modify</button>
 					<button type="submit" class="btn btn-danger">REMOVE</button>
 					<button type="submit" class="btn btn-primary">LIST ALL</button>
 				</div>
-
 			</div>
-			<!-- /.box -->
 		</div>
-		<!--/.col (left) -->
-
 	</div>
-	<!-- /.row -->
+
 </section>
 <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
 
 <script>
-
 $(document).ready(function(){
 	
 	var formObj = $("form[role='form']");
@@ -105,7 +123,7 @@ $(document).ready(function(){
 	console.log(formObj);
 	
 	$(".btn-warning").on("click", function(){
-		formObj.attr("action", "/campaign/modify");
+		formObj.attr("action", "/campaign/modifyPage");
 		formObj.attr("method", "get");		
 		formObj.submit();
 	});
@@ -122,7 +140,7 @@ $(document).ready(function(){
 });
 
 
-var bno = ${campaign.bno};
+var bno = ${campaign1.bno};
 var template = Handlebars.compile($("#templateAttach").html());
 
 $.getJSON("/campaign/getAttach/"+bno,function(list){
@@ -160,15 +178,4 @@ $("#popup_img").on("click", function(){
 	$(".popup").hide('slow');
 	
 });
-
-</script>
-
-<script id="templateAttach" type="text/x-handlebars-template">
-<li data-src='{{fullName}}'>
-<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
-<div class="mailbox-attachment-info">
-<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
-</span>
-</div>
-</li>                
 </script>

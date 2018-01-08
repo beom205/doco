@@ -58,13 +58,12 @@ iframe {
 							<label for="exampleInputEmail1">캠페인 사진</label>
 							<div class="fileDrop"></div>
 						</div>
-
-						<!-- <div class="form-group">
+						
+						<div class="form-group">
 							<label for="exampleInputEmail1">캠페인 동영상</label>
-							<form id='form1' action="uploadForm" method="post" enctype="multipart/form-data" target="zeroFrame">
-								<input type='file' name='file'> <input type='submit'>
-							</form>  -->
- 
+							<div class="fileDrop"></div>
+						</div>
+
 							<iframe name="zeroFrame"></iframe>
 						</div>
 					</div>
