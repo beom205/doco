@@ -3,10 +3,9 @@
 
 <%@include file="../include/header.jsp"%>
 
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
 
 
 <!-- Main content -->
@@ -25,6 +24,8 @@
 
 					<input type='hidden' name='page' value="${cri.page}"> <input
 						type='hidden' name='perPageNum' value="${cri.perPageNum}">
+					<input type='hidden' name='searchType' value="${cri.searchType}">
+					<input type='hidden' name='keyword' value="${cri.keyword}">
 
 					<div class="box-body">
 
@@ -43,9 +44,8 @@
 							<textarea class="form-control" name="content" rows="3">${campaign.content}</textarea>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">Writer</label> <input
-								type="text" name="writer" class="form-control"
-								value="${campaign.writer}">
+							<label for="exampleInputEmail1">Writer</label> <input type="text"
+								name="writer" class="form-control" value="${campaign.writer}">
 						</div>
 					</div>
 					<!-- /.box-body -->
@@ -57,26 +57,26 @@
 
 				<script>
 					$(document)
-							.ready(
+						.ready(
+							function() {
+				
+								var formObj = $("form[role='form']");
+				
+								console.log(formObj);
+				
+								$(".btn-warning")
+									.on(
+										"click",
+										function() {
+											self.location = "/campaign/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}";
+										});
+				
+								$(".btn-primary").on("click",
 									function() {
-
-										var formObj = $("form[role='form']");
-
-										console.log(formObj);
-
-										$(".btn-warning")
-												.on(
-														"click",
-														function() {
-															self.location = "/campaign/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}";
-														});
-
-										$(".btn-primary").on("click",
-												function() {
-													formObj.submit();
-												});
-
+										formObj.submit();
 									});
+				
+							});
 				</script>
 
 

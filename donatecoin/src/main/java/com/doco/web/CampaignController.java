@@ -245,18 +245,18 @@ public class CampaignController {
 	
 	@ResponseBody
 	@RequestMapping("/displayMovie")
-	public ResponseEntity<byte[]> displayMovie(String name) throws Exception {
+	public ResponseEntity<byte[]> displayMovie(String fileName) throws Exception {
 
 		InputStream in = null;
 		ResponseEntity<byte[]> entity = null;
 
-		logger.info("FILE NAME: " + name);
+		logger.info("FILE NAME: " + fileName);
 
 		try {
 
 			HttpHeaders headers = new HttpHeaders();
 
-			in = new FileInputStream(uploadPath + "\\" + name);
+			in = new FileInputStream(uploadPath + "\\" + fileName);
 
 			logger.info("uoloadPath" + uploadPath);
 

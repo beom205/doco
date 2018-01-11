@@ -80,11 +80,13 @@ flowplayer {
 
 				</form>
 				<div class="flowplayer">
-					<video>
 						<c:forEach items="${campaign3}" var="cp">
-							<source src="displayMoive?fileName=${cp}" />
+							<video>
+								<source src="displayMovie?fileName=${cp}" 
+								type="video/mp4"
+								/>
+							</video>
 						</c:forEach>
-					</video>
 				</div>
 				<div class="box-body">
 					<div class="form-group">
