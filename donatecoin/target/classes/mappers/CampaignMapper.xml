@@ -18,8 +18,10 @@
 	</select>
 
 	<update id="update">
-		update dtb_campaign set title = #{title}, content =
-		#{content}
+		update 
+		dtb_campaign 
+		set 
+		title = #{title}, content = #{content}
 		where bno = #{bno}
 	</update>
 
