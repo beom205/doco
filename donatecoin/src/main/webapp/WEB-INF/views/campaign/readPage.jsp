@@ -116,9 +116,9 @@ flowplayer {
 				</ul>
 
 				<div class="box-footer">
-					<button type="submit" class="btn btn-warning">Modify</button>
-					<button type="submit" class="btn btn-danger">REMOVE</button>
-					<button type="submit" class="btn btn-primary">LIST ALL</button>
+					<button type="submit" class="btn btn-warning">수정</button>
+					<button type="submit" class="btn btn-danger">삭제</button>
+					<button type="submit" class="btn btn-primary">전체목록</button>
 				</div>
 			</div>
 		</div>

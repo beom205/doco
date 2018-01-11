@@ -40,8 +40,8 @@
 
 	<select id="listPage" resultType="Campaign">
 		<![CDATA[
-		select
-		bno, title, content, writer, regdate
+ 		select
+		bno, title, content, writer, regdate 
 		from
 		dtb_campaign
 		where bno > 0
@@ -52,13 +52,12 @@
 
 	<select id="listCriteria" resultType="Campaign">
 		<![CDATA[
-		select
-		bno, title, content, writer, regdate
-		from
-		dtb_campaign
-		where bno > 0
-		order by bno desc, regdate desc
-		limit #{pageStart}, #{perPageNum}
+		select  dtbc.bno bno, dtbc.title title, dtbc.content content, dtbc.writer writer, dtbc.regdate regdate, dtba.fullName fullName from dtb_campaign dtbc left outer join dtb_attach dtba
+        on dtbc.bno = dtba.bno
+        where dtbc.bno > 0 
+        group by bno
+        order by bno desc
+        limit #{pageStart}, #{perPageNum}
 		]]>
 	</select>
 

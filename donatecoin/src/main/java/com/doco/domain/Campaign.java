@@ -9,11 +9,16 @@ public class Campaign {
 	private String title, content, writer;
 	private Date regdate;
 	private String[] files;
+	private String fullName;
 	
+	
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 	private String movieFile;
-
-	
-	
 	
 	
 	public String getMovieFile() {
