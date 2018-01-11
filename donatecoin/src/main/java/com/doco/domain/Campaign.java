@@ -10,7 +10,7 @@ public class Campaign {
 	private Date regdate;
 	private String[] files;
 	private String fullName;
-	
+	private String movieFile;
 	
 	public String getFullName() {
 		return fullName;
@@ -18,9 +18,6 @@ public class Campaign {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	private String movieFile;
-	
-	
 	public String getMovieFile() {
 		return movieFile;
 	}

@@ -97,6 +97,7 @@ public class CampaignController {
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
 		logger.info("aaaaa");
+		//model.addAttribute("read", service.read(bno));
 		model.addAttribute(service.read(bno));
 	}
 
@@ -111,9 +112,8 @@ public class CampaignController {
 	}
 
 	// 수정하기
-	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public void modify(int bno, Model model) throws Exception {
-
 		model.addAttribute(service.read(bno));
 	}
 	
@@ -127,8 +127,7 @@ public class CampaignController {
 		rttr.addFlashAttribute("msg", "success");
 
 		return "redirect:/campaign/listPage";
-	}
-
+	}*/
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
 	public void modifyPagingGET(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model)
 			throws Exception {
@@ -138,7 +137,7 @@ public class CampaignController {
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
 	public String modifyPagingPOST(Campaign baord, Criteria cri, RedirectAttributes rttr) throws Exception {
-
+		logger.info("modify 들어옴");
 		service.modify(baord);
 
 		rttr.addAttribute("page", cri.getPage());
@@ -149,19 +148,9 @@ public class CampaignController {
 	}
 	
 	// 삭제하기
-	@RequestMapping(value = "/remove", method = RequestMethod.POST)
-	public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
-		
-		service.remove(bno);
-		
-		rttr.addFlashAttribute("msg", "SUCCESS");
-		
-		return "redirect:/campaign/listPage";
-	}
-	
 	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
 	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) throws Exception {
-		
+		logger.info("remove 들어옴");
 		service.remove(bno);
 		
 		rttr.addAttribute("page", cri.getPage());

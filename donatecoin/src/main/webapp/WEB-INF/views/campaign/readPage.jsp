@@ -74,11 +74,7 @@ flowplayer {
 				<!-- /.box-header -->
 
 
-				<form role="form" method="post">
-
-					<input type='hidden' name='bno' value="${bno}">
-
-				</form>
+				
 				<div class="flowplayer">
 					<c:forEach items="${campaign3}" var="cp">
 						<video>
@@ -112,12 +108,17 @@ flowplayer {
 						<img src="displayFile?fileName=${cp}" />
 					</c:forEach>
 				</ul>
-
+				
+				<form role="form"  method="post">
+					<input type='hidden' name='bno' value="${campaign1.bno}">
+				</form>
 				<div class="box-footer">
 					<button type="submit" class="btn btn-warning">수정</button>
-					<button type="submit" class="btn btn-danger">삭제</button>
+					<button type="button" class="btn btn-danger">삭제</button>
 					<button type="submit" class="btn btn-primary">전체목록</button>
 				</div>
+
+				
 			</div>
 		</div>
 	</div>
@@ -134,15 +135,16 @@ $(document).ready(function(){
 	
 	$(".btn-warning").on("click", function(){
 		formObj.attr("action", "/campaign/modifyPage");
-		formObj.attr("method", "get");		
+		formObj.attr("method", "POST");		
 		formObj.submit();
 	});
-	
+	 
 	$(".btn-danger").on("click", function(){
-		formObj.attr("action", "/campaign/removePage");
+		formObj.attr("action", "/campaign/removePage")
+		   		  .attr("method","POST");
 		formObj.submit();
-	});
-	
+	}); 
+	 
 	$(".btn-primary").on("click", function(){
 		self.location = "/campaign/listPage";
 	});
