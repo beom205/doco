@@ -91,7 +91,7 @@ public class UploadFileUtils {
     ImageIO.write(destImg, formatName.toUpperCase(), newFile);
     return thumbnailName.substring(
         uploadPath.length()).replace(File.separatorChar, '/');
-  } 
+  }
   
   
   private static String calcPath(String uploadPath){

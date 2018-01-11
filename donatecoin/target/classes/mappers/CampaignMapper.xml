@@ -13,13 +13,8 @@
 
 	<select id="read" resultType="com.doco.domain.Campaign">
 		select bno, title, content, writer, regdate 
-		  from dtb_campaign 
+		  from dtb_campaign
 		 where bno=#{bno}
-		<!-- select dtb_cp.bno, dtb_cp.title, dtb_cp.content, dtb_cp.writer, dtb_att.fullName 
-		  from dtb_campaign dtb_cp 
-		  left outer join dtb_attach dtb_att
-		    on dtb_cp.bno = dtb_att.bno
-		 where dtb_cp.bno = #{bno}; -->
 	</select>
 
 	<update id="update">
@@ -46,7 +41,7 @@
 	<select id="listPage" resultType="Campaign">
 		<![CDATA[
 		select
-		bno, title, content, writer, regdate, viewcnt
+		bno, title, content, writer, regdate
 		from
 		dtb_campaign
 		where bno > 0
@@ -58,7 +53,7 @@
 	<select id="listCriteria" resultType="Campaign">
 		<![CDATA[
 		select
-		bno, title, content, writer, regdate, viewcnt
+		bno, title, content, writer, regdate
 		from
 		dtb_campaign
 		where bno > 0
@@ -82,16 +77,21 @@
 		insert into dtb_attach(fullname, bno) values
 		(#{fullname}, LAST_INSERT_ID())
 	</insert>
-
+	<insert id="addMovie">
+		insert into dtb_attach2(fullname, bno) values
+		(#{fullname}, LAST_INSERT_ID())
+	</insert>
 	<select id="getAttach" resultType="string">
 		select fullname from
 		dtb_attach where bno = #{bno} order by regdate
 	</select>
-
+	<select id="getMovie" resultType="string">
+		select fullname from
+		dtb_attach2 where bno = #{bno} order by regdate
+	</select>
 	<delete id="deleteAttach">
 		delete from dtb_attach where bno = #{bno}
 	</delete>
-
 	<insert id="replaceAttach">
 		insert into dtb_attach(fullname, bno) values
 		(#{fullName}, #{bno})

@@ -13,6 +13,11 @@
 	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	crossorigin="anonymous"></script>
 
+<link rel="stylesheet"
+	href="https://releases.flowplayer.org/7.2.1/skin/skin.css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://releases.flowplayer.org/7.2.1/flowplayer.min.js"></script>
+
 <style type="text/css">
 .popup {
 	position: absolute;
@@ -40,6 +45,15 @@
 	max-height: 800px;
 	overflow: auto;
 }
+
+flowplayer {
+	position: absolute;
+	top: 80px;
+	left: 60px;
+	width: 300px;
+	border: 2px solid red;
+	z-index: 100;
+}
 </style>
 
 <div class='popup back' style="display: none;"></div>
@@ -59,12 +73,19 @@
 				</div>
 				<!-- /.box-header -->
 
+
 				<form role="form" method="post">
 
 					<input type='hidden' name='bno' value="${bno}">
 
 				</form>
-
+				<div class="flowplayer">
+					<video>
+						<c:forEach items="${campaign3}" var="cp">
+							<source src="displayMoive?fileName=${cp}" />
+						</c:forEach>
+					</video>
+				</div>
 				<div class="box-body">
 					<div class="form-group">
 						<label for="exampleInputEmail1">제목</label> <input type="text"
@@ -85,25 +106,14 @@
 					</div>
 				</div>
 				<!-- /.box-body -->
-				
-				<div class="box-footer">
+				<label>캠페인 사진</label>
+				<ul class="mail	box-attachments clearfix uploadList">
+					<c:forEach items="${campaign2}" var="cp">
+						<img src="displayFile?fileName=${cp}" />
+					</c:forEach>
+				</ul>
 
-					<div>
-						<hr>
-					</div>
-					
-					<ul class="mail	box-attachments clearfix uploadList">
-						<c:forEach items="${campaign2}" var="cp">
-							<img src="displayFile?fileName=${cp}"/>
-						</c:forEach>
-					</ul>
-					
-					<ul class="mail	box-attachments clearfix uploadList">
-						<c:forEach items="${campaign2}" var="cp">
-							<img src="displayFile?fileName=${cp}"/>
-						</c:forEach>
-					</ul>
-					
+				<div class="box-footer">
 					<button type="submit" class="btn btn-warning">Modify</button>
 					<button type="submit" class="btn btn-danger">REMOVE</button>
 					<button type="submit" class="btn btn-primary">LIST ALL</button>

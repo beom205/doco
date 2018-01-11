@@ -57,6 +57,7 @@ iframe {
 							<label for="exampleInputEmail1">캠페인 사진</label>
 							<div class="fileDrop"></div>
 						</div>
+							<label for="exampleInputEmail1">캠페인 동영상</label>
 							<input type='file' name='video'>
 					</div>
 			</div>
@@ -102,7 +103,7 @@ iframe {
      class="btn btn-default btn-xs pull-right delbtn"><i cl	ass="fa fa-fw fa-remove"></i></a>
 	</span>
   </div>
-</li>                
+</li>
 </script>
 
 <script>

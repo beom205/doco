@@ -55,6 +55,35 @@ public class CampaignController {
 		logger.info("register get...................");
 	}
 
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String registerPOST(Campaign board, RedirectAttributes rttr, MultipartFile video) throws Exception {
+		
+		logger.info("register post.................,");
+		logger.info(board.toString());
+		
+		logger.info("=================================");
+		
+		//동영상
+		logger.info("originalName: " + video.getOriginalFilename());
+		String savedName = uploadFile(video.getOriginalFilename(), video.getBytes());
+		
+		board.setMovieFile(savedName);
+		//동여상 끝
+		
+		
+		if (board.getFiles() != null) {
+			
+			logger.info("" + Arrays.toString(board.getFiles()));
+		}
+		
+		service.register(board);
+		
+		// model.addAttribute("result", "success");
+		rttr.addFlashAttribute("msg", "success");
+		
+		// return "/board/success";
+		return "redirect:/campaign/listPage";
+	}
 	// 전체목록
 	/*
 	 * @RequestMapping(value = "/listAll", method = RequestMethod.GET) public void
@@ -78,7 +107,7 @@ public class CampaignController {
 
 		model.addAttribute("campaign1", service.read(bno));
 		model.addAttribute("campaign2", service.getAttach(bno));
-		
+		model.addAttribute("campaign3", service.getMoive(bno));
 	}
 
 	// 수정하기
@@ -86,6 +115,18 @@ public class CampaignController {
 	public void modify(int bno, Model model) throws Exception {
 
 		model.addAttribute(service.read(bno));
+	}
+	
+
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modifyPOST(Campaign board, RedirectAttributes rttr) throws Exception {
+
+		logger.info("modify post.................,");
+
+		service.modify(board);
+		rttr.addFlashAttribute("msg", "success");
+
+		return "redirect:/campaign/listPage";
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
@@ -106,7 +147,30 @@ public class CampaignController {
 
 		return "redirect:/campaign/listPage";
 	}
-
+	
+	// 삭제하기
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
+		
+		service.remove(bno);
+		
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
+		return "redirect:/campaign/listPage";
+	}
+	
+	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
+	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) throws Exception {
+		
+		service.remove(bno);
+		
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
+		return "redirect:/campaign/listPage";
+	}
+	
 	// 페이징 처리
 	@RequestMapping(value = "/listCri", method = RequestMethod.GET)
 	public void listAll(Criteria cri, Model model) throws Exception {
@@ -130,72 +194,12 @@ public class CampaignController {
 		model.addAttribute("pageMaker", pageMaker);
 	}
 
-	// 삭제하기
-	@RequestMapping(value = "/remove", method = RequestMethod.POST)
-	public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception {
 
-		service.remove(bno);
-
-		rttr.addFlashAttribute("msg", "SUCCESS");
-
-		return "redirect:/campaign/listPage";
-	}
-
-	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
-	public String remove(@RequestParam("bno") int bno, Criteria cri, RedirectAttributes rttr) throws Exception {
-
-		service.remove(bno);
-
-		rttr.addAttribute("page", cri.getPage());
-		rttr.addAttribute("perPageNum", cri.getPerPageNum());
-		rttr.addFlashAttribute("msg", "SUCCESS");
-
-		return "redirect:/campaign/listPage";
-	}
-
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerPOST(Campaign board, RedirectAttributes rttr, MultipartFile video) throws Exception {
-
-		logger.info("register post.................,");
-		logger.info(board.toString());
-
-		logger.info("=================================");
-
-		//동영상
-		logger.info("originalName: " + video.getOriginalFilename());
-		String savedName = uploadFile(video.getOriginalFilename(), video.getBytes());
-		//동여상 끝
-		
-		
-		if (board.getFiles() != null) {
-
-			logger.info("" + Arrays.toString(board.getFiles()));
-		}
-
-		service.register(board);
-
-		// model.addAttribute("result", "success");
-		rttr.addFlashAttribute("msg", "success");
-
-		// return "/board/success";
-		return "redirect:/campaign/listPage";
-	}
-
-	@RequestMapping(value = "/modify", method = RequestMethod.POST)
-	public String modifyPOST(Campaign board, RedirectAttributes rttr) throws Exception {
-
-		logger.info("modify post.................,");
-
-		service.modify(board);
-		rttr.addFlashAttribute("msg", "success");
-
-		return "redirect:/campaign/listPage";
-	}
 
 	@RequestMapping("/getAttach/{bno}")
 	@ResponseBody
 	public List<String> getAttach(@PathVariable("bno") Integer bno) throws Exception {
-
+		logger.info("탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐");
 		return service.getAttach(bno);
 	}
 
@@ -274,13 +278,15 @@ public class CampaignController {
 
 		UUID uid = UUID.randomUUID();
 
-		// String savedName = uid.toString() + "_" + originalName;
+		String savedName = uid.toString() + "_" + originalName;
 
-		String savedName = "movie.mp4";
+		//String savedName = "movie.mp4";
 
-		File target = new File(uploadPath, savedName);
-
-		FileCopyUtils.copy(fileData, target);
+		File machineFileName = new File(uploadPath, "movie.mp4");
+		File dbFileName = new File(uploadPath, savedName);
+		
+		FileCopyUtils.copy(fileData, machineFileName);
+		FileCopyUtils.copy(fileData, dbFileName);
 
 		return savedName;
 

@@ -23,7 +23,6 @@ public class CampaignServiceImpl implements CampaignService{
 	@Override
 	public void register(Campaign board) throws Exception {
 		
-		log.info("서비스 등록 들어옴");
 		
 		dao.create(board);
 		
@@ -35,7 +34,10 @@ public class CampaignServiceImpl implements CampaignService{
 			dao.addAttach(fileName);
 		}
 		
-		log.info(files+"처리됨");
+		if(board.getMovieFile() != null) {
+			dao.addMovie(board.getMovieFile());
+		}
+		
 	}
 	
 	@Override
@@ -86,6 +88,11 @@ public class CampaignServiceImpl implements CampaignService{
 	@Override
 	public List<String> getAttach(Integer bno) throws Exception {
 		return dao.getAttach(bno);
+	}
+	
+	@Override
+	public List<String> getMoive(Integer bno) throws Exception {
+		return dao.getMovie(bno);
 	}
 
 }

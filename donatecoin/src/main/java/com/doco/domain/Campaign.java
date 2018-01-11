@@ -10,7 +10,18 @@ public class Campaign {
 	private Date regdate;
 	private String[] files;
 	
+	private String movieFile;
+
 	
+	
+	
+	
+	public String getMovieFile() {
+		return movieFile;
+	}
+	public void setMovieFile(String movieFile) {
+		this.movieFile = movieFile;
+	}
 	public String[] getFiles() {
 		return files;
 	}

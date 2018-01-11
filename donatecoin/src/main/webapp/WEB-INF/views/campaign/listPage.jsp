@@ -30,7 +30,6 @@
 							<th>제목</th>
 							<th>글쓴이</th>
 							<th>등록일</th>
-							<th style="width: 40px">VIEWCNT</th>
 						</tr>
 
 						<c:forEach items="${list}" var="campaign">
@@ -41,7 +40,6 @@
 								<td>${campaign.writer}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 										value="${campaign.regdate}" /></td>
-								<td><span class="badge bg-red">${campaign.viewcnt }</span></td>
 							</tr>
 
 						</c:forEach>

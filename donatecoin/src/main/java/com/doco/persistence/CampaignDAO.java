@@ -26,7 +26,11 @@ public interface CampaignDAO {
 	
 	public void addAttach(String fullName)throws Exception;
 	
+	public void addMovie(String fullName)throws Exception;
+	
 	public List<String> getAttach(Integer bno)throws Exception;
+	
+	public List<String> getMovie(Integer bno)throws Exception;
 	
 	 public void deleteAttach(Integer bno)throws Exception;
 	  

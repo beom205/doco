@@ -76,10 +76,20 @@ public class CampaignDAOImpl implements CampaignDAO {
 	public void addAttach(String fullName) throws Exception {
 		session.insert(namespace + ".addAttach", fullName);
 	}
-
+	
+	@Override
+	public void addMovie(String fullName) throws Exception {
+		session.insert(namespace + ".addMovie", fullName);
+	}
+	
 	@Override
 	public List<String> getAttach(Integer bno) throws Exception {
 		return session.selectList(namespace + ".getAttach", bno);
+	}
+	
+	@Override
+	public List<String> getMovie(Integer bno) throws Exception {
+		return session.selectList(namespace + ".getMovie", bno);
 	}
 
 	@Override
@@ -97,5 +107,4 @@ public class CampaignDAOImpl implements CampaignDAO {
 		session.insert(namespace + ".replaceAttach", paramMap);
 
 	}
-
 }

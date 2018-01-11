@@ -24,4 +24,6 @@ public void register(Campaign board)throws Exception;
 	
 	public List<String> getAttach(Integer bno)throws Exception;
 	
+	public List<String> getMoive(Integer bno)throws Exception;
+	
 }
