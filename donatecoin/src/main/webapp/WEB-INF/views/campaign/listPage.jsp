@@ -78,7 +78,7 @@
 							<fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 								value="${campaign.regdate}" />
 						</p>
-						<a class="btn btn-primary">자세히 보기</a>
+						<a class="btn btn-primary" href='/campaign/readPage${pageMaker.makeQuery(pageMaker.cri.page) }&bno=${campaign.bno}'>자세히 보기</a>
 					</div>
 				</div>
 			</div>
