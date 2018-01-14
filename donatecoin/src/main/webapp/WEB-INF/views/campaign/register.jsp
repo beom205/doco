@@ -3,6 +3,7 @@
 
 <%@include file="../include/header.jsp"%>
 
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
 	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	crossorigin="anonymous"></script>
@@ -22,77 +23,61 @@ iframe {
 	border: 0px
 }
 </style>
+<!--Section: Contact v.1-->
+<section class="py-3">
 
+	<!--Section heading-->
+	<div class="container">
+		<h2 class="font-bold text-center h1 py-5">캠페인 등록</h2>
 
-<!-- Main content -->
-<section class="content">
-	<div class="row">
-		<!-- left column -->
-		<div class="col-md-12">
-			<!-- general form elements -->
-			<div class="box box-primary">
-				<div class="box-header">
-					<h3 class="box-title">캠페인 등록하기</h3>
-				</div>
-				<!-- /.box-header -->
-
-				<form id='registerForm' role="form" method="post" enctype="multipart/form-data">
-					<div class="box-body">
-						<div class="form-group">
-							<div class="form-group">
-								<label for="exampleInputEmail1">캠페인 글쓴이</label> <input
-									type="text" name="writer" class="form-control"
-									placeholder="Enter Writer">
-							</div>
-							<label for="exampleInputEmail1">캠페인 제목</label> <input type="text"
-								name='title' class="form-control" placeholder="Enter Title">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">캠페인 내용</label>
-							<textarea class="form-control" name="content" rows="3"
-								placeholder="Enter ..."></textarea>
-						</div>
-
-						<div class="form-group">
-							<label for="exampleInputEmail1">캠페인 사진</label>
-							<div class="fileDrop"></div>
-						</div>
-							<label for="exampleInputEmail1">캠페인 동영상</label>
-							<input type='file' name='video'>
-					</div>
-			</div>
-
-			<!-- /.box-body -->
-
-			<div class="box-footer">
-				<div>
-					<hr>
+		<form id='registerForm' role="form" method="post"
+			enctype="multipart/form-data">
+			<div class="card-body">
+				<!--Body-->
+				<div class="md-form">
+					<i class="fa fa-user prefix grey-text"></i> <input name="writer"
+						type="text" id="form-name" class="form-control"
+						placeholder="캠페인 글쓴이">
 				</div>
 
-				<ul class="mailbox-attachments clearfix uploadedList">
-				</ul>
+				<div class="md-form">
+					<i class="fa fa-envelope prefix grey-text"></i> <input name='title'
+						type="text" id="form-email" class="form-control"
+						placeholder="캠페인 제목">
+				</div>
 
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<div class="md-form">
+					<i class="fa fa-tag prefix grey-text"></i>
+					<textarea name="content" type="text" id="form-text"
+						class="md-textarea" placeholder="캠페인 내용"></textarea>
+				</div>
 
+				<div class="md-form">
+					<i class="fa fa-image prefix grey-text"></i> 
+					<div class="fileDrop"></div>
+				</div>
+
+				<div class="md-form">
+					<i class="fa fa-video-camera prefix grey-text"></i>
+					<input type='file' name='video'>
+				</div>
+
+				<div class="box-footer">
+
+					<ul class="mailbox-attachments clearfix uploadedList">
+					</ul>
+
+					<button type="submit" class="btn btn-light-blue">Submit</button>
+				</div>
 			</div>
-			</form>
-
-
-		</div>
-		<!-- /.box -->
+		</form>
 	</div>
-	<!--/.col (left) -->
-
-	</div>
-	<!-- /.row -->
 </section>
-<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+
+<!--Section: Contact v.1-->
 
 <script type="text/javascript" src="/resources/js/upload.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <script id="template" type="text/x-handlebars-template">
 <li>

@@ -46,14 +46,13 @@
 	overflow: auto;
 }
 
-flowplayer {
+/* .flowplayer {
 	position: absolute;
 	top: 80px;
 	left: 60px;
 	width: 300px;
 	border: 2px solid red;
-	z-index: 100;
-}
+} */
 </style>
 
 <div class='popup back' style="display: none;"></div>
@@ -75,13 +74,6 @@ flowplayer {
 
 
 				
-				<div class="flowplayer">
-					<c:forEach items="${campaign3}" var="cp">
-						<video>
-							<source src="displayMovie?fileName=${cp}" type="video/mp4" />
-						</video>
-					</c:forEach>
-				</div>
 				<div class="box-body">
 					<div class="form-group">
 						<label for="exampleInputEmail1">제목</label> <input type="text"
@@ -109,6 +101,14 @@ flowplayer {
 					</c:forEach>
 				</ul>
 				
+				<div class="flowplayer">
+					<c:forEach items="${campaign3}" var="cp">
+						<video>
+							<source src="displayMovie?fileName=${cp}" type="video/mp4" />
+						</video>
+					</c:forEach>
+				</div>
+				
 				<form role="form"  method="post">
 					<input type='hidden' name='bno' value="${campaign1.bno}">
 				</form>
@@ -125,6 +125,18 @@ flowplayer {
 
 </section>
 <!-- /.content -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.jtemplateAttachs"></script>	
+
+<script id="templateAttach" type="text/x-handlebars-template">
+<li data-src='{{fullName}}'>
+  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+  <div class="mailbox-attachment-info">
+	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+	</span>
+  </div>
+</li>                
+</script>
 
 <script>
 $(document).ready(function(){
@@ -151,8 +163,6 @@ $(document).ready(function(){
 	
 });
 
-
-var bno = ${campaign1.bno};
 var template = Handlebars.compile($("#templateAttach").html());
 
 $.getJSON("/campaign/getAttach/"+bno,function(list){
