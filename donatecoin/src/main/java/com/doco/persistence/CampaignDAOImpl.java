@@ -96,6 +96,11 @@ public class CampaignDAOImpl implements CampaignDAO {
 	public void deleteAttach(Integer bno) throws Exception {
 		session.delete(namespace + ".deleteAttach", bno);
 	}
+	@Override
+	public void deleteAttach2(Integer bno) throws Exception {
+		session.delete(namespace + ".deleteAttach2", bno);
+		
+	}
 
 	@Override
 	public void replaceAttach(String fullName, Integer bno) throws Exception {

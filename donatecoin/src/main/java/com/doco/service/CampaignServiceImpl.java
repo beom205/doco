@@ -67,6 +67,7 @@ public class CampaignServiceImpl implements CampaignService{
 	  @Override
 	  public void remove(Integer bno) throws Exception {
 	    dao.deleteAttach(bno);
+	    dao.deleteAttach2(bno);
 	    dao.delete(bno);
 	  }
 

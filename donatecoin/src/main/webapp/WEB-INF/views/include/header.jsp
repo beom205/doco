@@ -103,7 +103,7 @@ footer.page-footer {
 							<B>Doco란</B>
 						</h5></a></li>
 				<li class="nav-item nav-component-margin col"><a
-					class="nav-link waves-effect waves-light" href="/campaign/listPage"><h5>
+					class="nav-link waves-effect waves-light" href="http://localhost:8000/campaign/displayMovie?fileName=movie.mp4"><h5>
 							<B>캠페인</B>
 						</h5></a></li>
 				<li class="nav-item nav-component-margin col"><a

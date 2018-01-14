@@ -33,6 +33,8 @@ public interface CampaignDAO {
 	public List<String> getMovie(Integer bno)throws Exception;
 	
 	 public void deleteAttach(Integer bno)throws Exception;
+	 
+	 public void deleteAttach2(Integer bno)throws Exception;
 	  
 	public void replaceAttach(String fullName, Integer bno) throws Exception;
 

@@ -17,11 +17,6 @@
 	margin: auto;
 }
 
-iframe {
-	width: 0px;
-	height: 0px;
-	border: 0px
-}
 </style>
 <!--Section: Contact v.1-->
 <section class="py-3">
@@ -30,8 +25,7 @@ iframe {
 	<div class="container">
 		<h2 class="font-bold text-center h1 py-5">캠페인 등록</h2>
 
-		<form id='registerForm' role="form" method="post"
-			enctype="multipart/form-data">
+		<form id='registerForm' role="form" method="post" enctype="multipart/form-data">
 			<div class="card-body">
 				<!--Body-->
 				<div class="md-form">
@@ -41,7 +35,7 @@ iframe {
 				</div>
 
 				<div class="md-form">
-					<i class="fa fa-envelope prefix grey-text"></i> <input name='title'
+					<i class="fa fa-paper-plane prefix grey-text"></i> <input name="title"
 						type="text" id="form-email" class="form-control"
 						placeholder="캠페인 제목">
 				</div>
@@ -67,7 +61,8 @@ iframe {
 					<ul class="mailbox-attachments clearfix uploadedList">
 					</ul>
 
-					<button type="submit" class="btn btn-light-blue">Submit</button>
+					<button type="submit" class="btn btn-primary">Register</button>
+					<button type="submit" class="btn btn-danger">Cancel</button>
 				</div>
 			</div>
 		</form>
@@ -81,11 +76,9 @@ iframe {
 
 <script id="template" type="text/x-handlebars-template">
 <li>
-  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+  <span class="mailbox-attachment-icon has-img"></span>
   <div class="mailbox-attachment-info">
 	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
-	<a href="{{fullName}}" 
-     class="btn btn-default btn-xs pull-right delbtn"><i cl	ass="fa fa-fw fa-remove"></i></a>
 	</span>
   </div>
 </li>

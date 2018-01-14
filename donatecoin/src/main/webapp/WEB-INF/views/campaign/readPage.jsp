@@ -46,13 +46,13 @@
 	overflow: auto;
 }
 
-/* .flowplayer {
+flowplayer {
 	position: absolute;
 	top: 80px;
 	left: 60px;
 	width: 300px;
 	border: 2px solid red;
-} */
+}
 </style>
 
 <div class='popup back' style="display: none;"></div>
@@ -62,45 +62,72 @@
 
 <!-- Main content -->
 <section class="content">
-	<div class="row">
-		<!-- left column -->
-		<div class="col-md-12">
 			<!-- general form elements -->
-			<div class="box box-primary">
-				<div class="box-header">
-					<h3 class="box-title">캠페인 정보</h3>
-				</div>
-				<!-- /.box-header -->
-
-
-				
-				<div class="box-body">
-					<div class="form-group">
-						<label for="exampleInputEmail1">제목</label> <input type="text"
-							name='title' class="form-control" value="${campaign1.title}"
-							readonly="readonly">
+			<div class="container">
+					<div>
+						<h2 class="font-bold text-center h1 py-5">${campaign1.title}</h2>
+						<h5 class="text-right">${campaign1.writer}</h5> 
+						<br>
+						<br>
 					</div>
-
-					<div class="form-group">
-						<label for="exampleInputPassword1">내용</label>
-						<textarea class="form-control" name="content" rows="3"
-							readonly="readonly">${campaign1.content}</textarea>
+					<div class="md-form">
+						<h5 style="line-height:35px;">${campaign1.content}</h5>
 					</div>
-
-					<div class="form-group">
-						<label for="exampleInputEmail1">작성자</label> <input type="text"
-							name="writer" class="form-control" value="${campaign1.writer}"
-							readonly="readonly">
-					</div>
-				</div>
 				<!-- /.box-body -->
-				<label>캠페인 사진</label>
-				<ul class="mail	box-attachments clearfix uploadList">
+				<%-- <ul class="mail	box-attachments clearfix uploadList">
 					<c:forEach items="${campaign2}" var="cp">
 						<img src="displayFile?fileName=${cp}" />
 					</c:forEach>
-				</ul>
-				
+				</ul> --%>
+				<div id="carousel-example-1z" class="carousel slide carousel-fade"
+					data-ride="carousel">
+					<!--Indicators-->
+					<ol class="carousel-indicators">
+						<li data-target="#carousel-example-1z" data-slide-to="0"
+							class="active"></li>
+						<li data-target="#carousel-example-1z" data-slide-to="1"></li>
+						<li data-target="#carousel-example-1z" data-slide-to="2"></li>
+					</ol>
+					<!--/.Indicators-->
+					<!--Slides-->
+					<div class="carousel-inner" role="listbox">
+						<!--First slide-->
+						<div class="carousel-item active">
+							<img class="d-block w-100"
+								src="/resources/img/f.jpg"
+								alt="First slide">
+						</div>
+						<!--/First slide-->
+						<!--Second slide-->
+						<div class="carousel-item">
+							<img class="d-block w-100"
+								src="/resources/img/g.jpg"
+								alt="Second slide">
+						</div>
+						<!--/Second slide-->
+						<!--Third slide-->
+						<div class="carousel-item">
+							<img class="d-block w-100"
+								src="/resources/img/f.jpg"
+								alt="Third slide">
+						</div>
+						<!--/Third slide-->
+					</div>
+					<!--/.Slides-->
+					<!--Controls-->
+					<a class="carousel-control-prev" href="#carousel-example-1z"
+						role="button" data-slide="prev"> <span
+						class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+						class="sr-only">Previous</span>
+					</a> <a class="carousel-control-next" href="#carousel-example-1z"
+						role="button" data-slide="next"> <span
+						class="carousel-control-next-icon" aria-hidden="true"></span> <span
+						class="sr-only">Next</span>
+					</a>
+					<!--/.Controls-->
+				</div>
+				<br>
+				<br>
 				<div class="flowplayer">
 					<c:forEach items="${campaign3}" var="cp">
 						<video>
@@ -108,26 +135,28 @@
 						</video>
 					</c:forEach>
 				</div>
-				
-				<form role="form"  method="post">
+				<form role="form" method="post">
 					<input type='hidden' name='bno' value="${campaign1.bno}">
 				</form>
 				<div class="box-footer">
 					<button type="submit" class="btn btn-warning">수정</button>
-					<button type="button" class="btn btn-danger">삭제</button>
+					<button type="submit" class="btn btn-danger">삭제</button>
 					<button type="submit" class="btn btn-primary">전체목록</button>
 				</div>
-
-				
 			</div>
-		</div>
-	</div>
-
 </section>
 <!-- /.content -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.jtemplateAttachs"></script>	
-
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.jtemplateAttachs"></script> -->
+	<!-- JQuery -->
+	<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="/resources/js/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="/resources/js/mdb.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script id="templateAttach" type="text/x-handlebars-template">
 <li data-src='{{fullName}}'>
   <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
@@ -139,65 +168,64 @@
 </script>
 
 <script>
-$(document).ready(function(){
-	
-	var formObj = $("form[role='form']");
-	
-	console.log(formObj);
-	
-	$(".btn-warning").on("click", function(){
-		formObj.attr("action", "/campaign/modifyPage");
-		formObj.attr("method", "POST");		
-		formObj.submit();
+	$(document).ready(function() {
+
+		var formObj = $("form[role='form']");
+
+		$(".btn-warning").on("click", function() {
+			formObj.attr("action", "/campaign/modifyPage");
+			formObj.attr("method", "POST");
+			formObj.submit();
+		});
+
+		$(".btn-danger").on("click", function() {
+			formObj.attr("action", "/campaign/removePage")
+				.attr("method", "POST");
+			formObj.submit();
+			alert("삭제 되었습니다.");
+		});
+
+		$(".btn-primary").on("click", function() {
+			self.location = "/campaign/listPage";
+		});
+
 	});
-	 
-	$(".btn-danger").on("click", function(){
-		formObj.attr("action", "/campaign/removePage")
-		   		  .attr("method","POST");
-		formObj.submit();
-	}); 
-	 
-	$(".btn-primary").on("click", function(){
-		self.location = "/campaign/listPage";
+
+	/* var template = Handlebars.compile($("#templateAttach").html()); */
+
+	/* $.getJSON("/campaign/getAttach/"+bno,function(list){
+		$(list).each(function(){
+			
+			var fileInfo = getFileInfo(this);
+			
+			var html = template(fileInfo);
+			
+			 $(".uploadedList").append(html);
+			
+		});
+	}); */
+
+	/* $(".uploadedList").on("click", ".mailbox-attachment-info a", function(event){
+		
+		var fileLink = $(this).attr("href");
+		
+		if(checkImageType(fileLink)){
+			
+			event.preventDefault();
+					
+			var imgTag = $("#popup_img");
+			imgTag.attr("src", fileLink);
+			
+			console.log(imgTag.attr("src"));
+					
+			$(".popup").show('slow');
+			imgTag.addClass("show");		
+		}	
+	}); */
+
+	$("#popup_img").on("click", function() {
+
+		$(".popup").hide('slow');
+
 	});
-	
-});
-
-var template = Handlebars.compile($("#templateAttach").html());
-
-$.getJSON("/campaign/getAttach/"+bno,function(list){
-	$(list).each(function(){
-		
-		var fileInfo = getFileInfo(this);
-		
-		var html = template(fileInfo);
-		
-		 $(".uploadedList").append(html);
-		
-	});
-});
-
-$(".uploadedList").on("click", ".mailbox-attachment-info a", function(event){
-	
-	var fileLink = $(this).attr("href");
-	
-	if(checkImageType(fileLink)){
-		
-		event.preventDefault();
-				
-		var imgTag = $("#popup_img");
-		imgTag.attr("src", fileLink);
-		
-		console.log(imgTag.attr("src"));
-				
-		$(".popup").show('slow');
-		imgTag.addClass("show");		
-	}	
-});
-
-$("#popup_img").on("click", function(){
-	
-	$(".popup").hide('slow');
-	
-});
 </script>

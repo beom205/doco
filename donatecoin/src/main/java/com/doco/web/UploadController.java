@@ -83,7 +83,7 @@ public class UploadController {
 				HttpStatus.CREATED);
 	}
 
-/*	@ResponseBody
+	@ResponseBody
 	@RequestMapping("/displayFile")
 	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception {
 
@@ -120,7 +120,7 @@ public class UploadController {
 			in.close();
 		}
 		return entity;
-	}*/
+	}
 
 /*	@ResponseBody
 	@RequestMapping("/displayMovie")

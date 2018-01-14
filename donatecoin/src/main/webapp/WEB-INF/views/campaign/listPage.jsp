@@ -63,13 +63,14 @@
 <div class="container">
 	<div class="row">
 
-		<c:forEach items="${list}" var="campaign">
+		<c:forEach items="${list}" var="campaign"> 
 			<div class="col-md-4  d-none d-md-block">
+			
 				<div class="card">
 					<c:forEach items="${campaign.fullName}" var="cp">
 						<img class="img-fluid" src="displayFile?fileName=${cp}"
 							alt="Card image cap">
-					</c:forEach>
+					</c:forEach> 
 
 					<div class="card-body">
 						<h4 class="card-title">${campaign.title}</h4>

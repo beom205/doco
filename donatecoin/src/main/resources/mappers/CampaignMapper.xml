@@ -93,6 +93,9 @@
 	<delete id="deleteAttach">
 		delete from dtb_attach where bno = #{bno}
 	</delete>
+	<delete id="deleteAttach2">
+		delete from dtb_attach2 where bno = #{bno}
+	</delete>
 	<insert id="replaceAttach">
 		insert into dtb_attach(fullname, bno) values
 		(#{fullName}, #{bno})
