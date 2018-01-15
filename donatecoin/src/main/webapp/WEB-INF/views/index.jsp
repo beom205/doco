@@ -21,25 +21,25 @@
 		</ol>
 		<!--/.Indicators-->
 		<!--Slides-->
-		<div class="carousel-inner" role="listbox">
+		<div class="carousel-inner" role="listbox" style="height: 850px;">
 			<!--First slide-->
 			<div class="carousel-item active">
 				<img class="d-block w-100"
-					src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
+					src="/resources/img/indexImg/fire.png"
 					alt="First slide">
 			</div>
 			<!--/First slide-->
 			<!--Second slide-->
 			<div class="carousel-item">
 				<img class="d-block w-100"
-					src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
+					src="/resources/img/indexImg/clean.png"
 					alt="Second slide">
 			</div>
 			<!--/Second slide-->
 			<!--Third slide-->
 			<div class="carousel-item">
 				<img class="d-block w-100"
-					src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
+					src="/resources/img/indexImg/cat.png"
 					alt="Third slide">
 			</div>
 			<!--/Third slide-->

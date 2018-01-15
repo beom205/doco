@@ -103,9 +103,9 @@ footer.page-footer {
 							<input class='validate' type="text" name='id' id='id' /> <label
 								for='email'>아이디</label>
 						</div>
-						<label style='float: right;'> <a class='pink-text'
+						<!-- <label style='float: right;'> <a class='pink-text'
 							href='#!'><b>이 아이디는 사용가능합니다.</b></a>
-						</label>
+						</label> -->
 					</div>
 					<div class='row'>
 						<div class='input-field col s12'>

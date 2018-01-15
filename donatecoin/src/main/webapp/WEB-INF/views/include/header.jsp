@@ -85,8 +85,8 @@ footer.page-footer {
 			<div class="col"></div>
 			<div class="col login-padding ">
 				<span> <a href="/member/login"><i class="fa fa-sign-in mr-1"><span
-							class="doco">&nbsp;Login</span></i></a> &nbsp; <a href="/member/join"><i
-						class="fa fa-user" aria-hidden="true"><span class="doco">&nbsp;Join</span></i></a>
+							class="doco">&nbsp;로그인</span></i></a> &nbsp; <a href="/member/join"><i
+						class="fa fa-user" aria-hidden="true"><span class="doco">&nbsp;회원가입</span></i></a>
 				</span>
 			</div>
 		</div>
