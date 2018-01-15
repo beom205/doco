@@ -86,7 +86,7 @@ footer.page-footer {
 	<main>
 	<center>
 		<h2 style="color: #48cfad">
-			<B style="color: #777777">D</B>oco
+			<a href="/"><B style="color: #777777;">D</B><span class="grey-text text-light-1">oco</span></a>
 		</h2>
 		<div class="section"></div>
 		<div class="container" style="width: 530px;">
@@ -161,7 +161,6 @@ footer.page-footer {
 							<button type='submit' name='btn_login'
 								class='col s12 btn btn-large waves-effect indigo'>회원가입</button>
 						</div>
-						<a href="#!">Create account</a>
 					</center>
 					<input type="hidden" name="level" value="2">
 				</form>

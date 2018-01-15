@@ -77,13 +77,14 @@ footer.page-footer {
 
 			<div class="col doco">
 				<h2 style="color: #48cfad">
-					<B style="color: #777777">D</B>oco
+					<!-- <B style="color: #777777">D</B>oco -->
+					<a href="/"><B style="color: #777777;">D</B><span class="grey-text text-light-1">oco</span></a>
 				</h2>
 			</div>
 			<div class="col"></div>
 			<div class="col"></div>
 			<div class="col login-padding ">
-				<span> <a href="#"><i class="fa fa-sign-in mr-1"><span
+				<span> <a href="/member/login"><i class="fa fa-sign-in mr-1"><span
 							class="doco">&nbsp;Login</span></i></a> &nbsp; <a href="/member/join"><i
 						class="fa fa-user" aria-hidden="true"><span class="doco">&nbsp;Join</span></i></a>
 				</span>
