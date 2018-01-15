@@ -18,7 +18,7 @@
 	<div class="row">
 
 		<c:forEach items="${list}" var="campaign"> 
-			<div class="col-md-4  d-none d-md-block" style="height: 450px;">
+			<div class="col-md-4  d-none d-md-block" style="height: 450px; margin-bottom: 6   0px;">
 			
 				<div class="card">
 					<c:forEach items="${campaign.fullName}" var="cp">
