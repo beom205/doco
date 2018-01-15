@@ -26,6 +26,7 @@ public class CampaignServiceImpl implements CampaignService{
 		
 		dao.create(board);
 		
+		
 		String[] files = board.getFiles();
 		
 		if(files == null) { return; }
@@ -92,8 +93,14 @@ public class CampaignServiceImpl implements CampaignService{
 	}
 	
 	@Override
+	public List<String> getAttach2(Integer bno) throws Exception {
+		return dao.getMovie(bno);
+	}
+	
+	@Override
 	public List<String> getMoive(Integer bno) throws Exception {
 		return dao.getMovie(bno);
 	}
+
 
 }

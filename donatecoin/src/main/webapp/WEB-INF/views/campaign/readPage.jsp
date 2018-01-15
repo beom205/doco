@@ -62,101 +62,85 @@ flowplayer {
 
 <!-- Main content -->
 <section class="content">
-			<!-- general form elements -->
-			<div class="container">
-					<div>
-						<h2 class="font-bold text-center h1 py-5">${campaign1.title}</h2>
-						<h5 class="text-right">${campaign1.writer}</h5> 
-						<br>
-						<br>
-					</div>
-					<div class="md-form">
-						<h5 style="line-height:35px;">${campaign1.content}</h5>
-					</div>
-				<!-- /.box-body -->
-				<%-- <ul class="mail	box-attachments clearfix uploadList">
+	<!-- general form elements -->
+	<div class="container">
+		<div>
+			<h2 class="font-bold text-center h1 py-5">${campaign1.title}</h2>
+			<h5 class="text-right">${campaign1.writer}</h5>
+			<br> <br>
+		</div>
+		<div class="md-form">
+			<h5 style="line-height: 35px;">${campaign1.content}</h5>
+		</div>
+		<!-- /.box-body -->
+		<%-- <ul class="mail	box-attachments clearfix uploadList">
 					<c:forEach items="${campaign2}" var="cp">
 						<img src="displayFile?fileName=${cp}" />
 					</c:forEach>
 				</ul> --%>
-				<div id="carousel-example-1z" class="carousel slide carousel-fade"
-					data-ride="carousel">
-					<!--Indicators-->
-					<ol class="carousel-indicators">
-						<li data-target="#carousel-example-1z" data-slide-to="0"
-							class="active"></li>
-						<li data-target="#carousel-example-1z" data-slide-to="1"></li>
-						<li data-target="#carousel-example-1z" data-slide-to="2"></li>
-					</ol>
-					<!--/.Indicators-->
-					<!--Slides-->
-					<div class="carousel-inner" role="listbox">
-						<!--First slide-->
-						<div class="carousel-item active">
-							<img class="d-block w-100"
-								src="/resources/img/f.jpg"
-								alt="First slide">
-						</div>
-						<!--/First slide-->
-						<!--Second slide-->
-						<div class="carousel-item">
-							<img class="d-block w-100"
-								src="/resources/img/g.jpg"
-								alt="Second slide">
-						</div>
-						<!--/Second slide-->
-						<!--Third slide-->
-						<div class="carousel-item">
-							<img class="d-block w-100"
-								src="/resources/img/f.jpg"
-								alt="Third slide">
-						</div>
-						<!--/Third slide-->
-					</div>
-					<!--/.Slides-->
-					<!--Controls-->
-					<a class="carousel-control-prev" href="#carousel-example-1z"
-						role="button" data-slide="prev"> <span
-						class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-						class="sr-only">Previous</span>
-					</a> <a class="carousel-control-next" href="#carousel-example-1z"
-						role="button" data-slide="next"> <span
-						class="carousel-control-next-icon" aria-hidden="true"></span> <span
-						class="sr-only">Next</span>
-					</a>
-					<!--/.Controls-->
+		<div id="carousel-example-1z" class="carousel slide carousel-fade"
+			data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carousel-example-1z" data-slide-to="0"
+					class="active"></li>
+				<li data-target="#carousel-example-1z" data-slide-to="1"></li>
+				<li data-target="#carousel-example-1z" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="carousel-item active">
+					<img class="d-block w-100" src="/resources/img/g.jpg"
+						alt="First slide">
 				</div>
-				<br>
-				<br>
-				<div class="flowplayer">
-					<c:forEach items="${campaign3}" var="cp">
-						<video>
-							<source src="displayMovie?fileName=${cp}" type="video/mp4" />
-						</video>
-					</c:forEach>
+				<div class="carousel-item">
+					<img class="d-block w-100" src="/resources/img/f.jpg"
+						alt="Second slide">
 				</div>
-				<form role="form" method="post">
-					<input type='hidden' name='bno' value="${campaign1.bno}">
-				</form>
-				<div class="box-footer">
-					<button type="submit" class="btn btn-warning">수정</button>
-					<button type="submit" class="btn btn-danger">삭제</button>
-					<button type="submit" class="btn btn-primary">전체목록</button>
+				<div class="carousel-item">
+					<img class="d-block w-100" src="/resources/img/f.jpg"
+						alt="Third slide">
 				</div>
 			</div>
+			<a class="carousel-control-prev" href="#carousel-example-1z"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#carousel-example-1z"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
+			</a>
+		</div>
+		<br> <br>
+		<div class="flowplayer">
+			<c:forEach items="${campaign3}" var="cp">
+				<video>
+					<source src="displayMovie?fileName=${cp}" type="video/mp4" />
+				</video>
+			</c:forEach>
+		</div>
+		<form role="form" method="post">
+			<input type='hidden' name='bno' value="${campaign1.bno}">
+		</form>
+		<div class="box-footer">
+			<button type="submit" class="btn btn-warning">수정</button>
+			<button type="submit" class="btn btn-danger">삭제</button>
+			<button type="submit" class="btn btn-primary">전체목록</button>
+		</div>
+	</div>
 </section>
 <!-- /.content -->
 
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.jtemplateAttachs"></script> -->
-	<!-- JQuery -->
-	<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
-	<!-- Bootstrap tooltips -->
-	<script type="text/javascript" src="/resources/js/popper.min.js"></script>
-	<!-- Bootstrap core JavaScript -->
-	<script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
-	<!-- MDB core JavaScript -->
-	<script type="text/javascript" src="/resources/js/mdb.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="/resources/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="/resources/js/mdb.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script id="templateAttach" type="text/x-handlebars-template">
 <li data-src='{{fullName}}'>
   <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>

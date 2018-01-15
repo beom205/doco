@@ -62,29 +62,34 @@
 					</ul>
 
 					<button type="submit" class="btn btn-primary">Register</button>
-					<button type="submit" class="btn btn-danger">Cancel</button>
 				</div>
 			</div>
-		</form>
+		</form> 
 	</div>
 </section>
 
 <!--Section: Contact v.1-->
 
 <script type="text/javascript" src="/resources/js/upload.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <script id="template" type="text/x-handlebars-template">
 <li>
-  <span class="mailbox-attachment-icon has-img"></span>
+  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
   <div class="mailbox-attachment-info">
 	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+	<a href="{{fullName}}" 
+     class="btn btn-default btn-xs pull-right delbtn"><i cl	ass="fa fa-fw fa-remove"></i></a>
 	</span>
   </div>
 </li>
 </script>
 
 <script>
+	$(".btn btn-danger").on("click", function(){
+		self.location = "/campaign/listPage";
+	});
 
 	var template = Handlebars.compile($("#template").html());
 

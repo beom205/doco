@@ -81,6 +81,7 @@ public class UploadFileUtils {
             Scalr.Mode.FIT_TO_HEIGHT,100);
     
     String thumbnailName = 
+    		
         uploadPath + path + File.separator +"s_"+ fileName;
     
     File newFile = new File(thumbnailName);
