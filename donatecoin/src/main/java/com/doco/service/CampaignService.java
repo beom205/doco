@@ -8,7 +8,7 @@ import com.doco.domain.Criteria;
 
 public interface CampaignService {
 	
-public void register(Campaign board)throws Exception;
+	public void register(Campaign board)throws Exception;
 	
 	public Campaign read(Integer bno)throws Exception;
 	
@@ -23,6 +23,8 @@ public void register(Campaign board)throws Exception;
 	public int listCountCriteria(Criteria cri)throws Exception;
 	
 	public List<String> getAttach(Integer bno)throws Exception;
+	
+	public List<String> getAttach2(Integer bno)throws Exception;
 	
 	public List<String> getMoive(Integer bno)throws Exception;
 	

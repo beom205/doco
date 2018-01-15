@@ -60,7 +60,6 @@ public class CampaignController {
 		
 		logger.info("register post.................,");
 		logger.info(board.toString());
-		
 		logger.info("=================================");
 		
 		//동영상
@@ -77,7 +76,6 @@ public class CampaignController {
 		}
 		
 		service.register(board);
-		
 		// model.addAttribute("result", "success");
 		rttr.addFlashAttribute("msg", "success");
 		
@@ -96,15 +94,12 @@ public class CampaignController {
 	// 조회하기
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
-		logger.info("aaaaa");
 		//model.addAttribute("read", service.read(bno));
 		model.addAttribute(service.read(bno));
 	}
 
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
-		logger.info("bbbbb");
-		logger.info(""+service.getAttach(bno));
 
 		model.addAttribute("campaign1", service.read(bno));
 		model.addAttribute("campaign2", service.getAttach(bno));
@@ -191,7 +186,6 @@ public class CampaignController {
 	@RequestMapping("/getAttach/{bno}")
 	@ResponseBody
 	public List<String> getAttach(@PathVariable("bno") Integer bno) throws Exception {
-		logger.info("탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐탐");
 		return service.getAttach(bno);
 	}
 

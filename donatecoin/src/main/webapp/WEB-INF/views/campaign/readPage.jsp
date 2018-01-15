@@ -74,47 +74,47 @@ flowplayer {
 						<h5 style="line-height:35px;">${campaign1.content}</h5>
 					</div>
 				<!-- /.box-body -->
-				<%-- <ul class="mail	box-attachments clearfix uploadList">
+				<ul class="mail	box-attachments clearfix uploadList">
 					<c:forEach items="${campaign2}" var="cp">
 						<img src="displayFile?fileName=${cp}" />
 					</c:forEach>
-				</ul> --%>
+				</ul>
 				<div id="carousel-example-1z" class="carousel slide carousel-fade"
 					data-ride="carousel">
-					<!--Indicators-->
+					Indicators
 					<ol class="carousel-indicators">
 						<li data-target="#carousel-example-1z" data-slide-to="0"
 							class="active"></li>
 						<li data-target="#carousel-example-1z" data-slide-to="1"></li>
 						<li data-target="#carousel-example-1z" data-slide-to="2"></li>
 					</ol>
-					<!--/.Indicators-->
-					<!--Slides-->
+					/.Indicators
+					Slides
 					<div class="carousel-inner" role="listbox">
-						<!--First slide-->
+						First slide
 						<div class="carousel-item active">
 							<img class="d-block w-100"
 								src="/resources/img/f.jpg"
 								alt="First slide">
 						</div>
-						<!--/First slide-->
-						<!--Second slide-->
+						/First slide
+						Second slide
 						<div class="carousel-item">
 							<img class="d-block w-100"
 								src="/resources/img/g.jpg"
 								alt="Second slide">
 						</div>
-						<!--/Second slide-->
-						<!--Third slide-->
+						/Second slide
+						Third slide
 						<div class="carousel-item">
 							<img class="d-block w-100"
 								src="/resources/img/f.jpg"
 								alt="Third slide">
 						</div>
-						<!--/Third slide-->
+						/Third slide
 					</div>
-					<!--/.Slides-->
-					<!--Controls-->
+					/.Slides
+					Controls
 					<a class="carousel-control-prev" href="#carousel-example-1z"
 						role="button" data-slide="prev"> <span
 						class="carousel-control-prev-icon" aria-hidden="true"></span> <span
@@ -124,7 +124,7 @@ flowplayer {
 						class="carousel-control-next-icon" aria-hidden="true"></span> <span
 						class="sr-only">Next</span>
 					</a>
-					<!--/.Controls-->
+					/.Controls
 				</div>
 				<br>
 				<br>
