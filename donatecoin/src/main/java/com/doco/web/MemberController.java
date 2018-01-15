@@ -57,10 +57,6 @@ public class MemberController {
 			throws IOException {
 		Object obj = session.getAttribute("login");
 		log.info("시작");
-		log.info(session.getAttribute("session").toString());
-		log.info(session.getAttribute("login").toString());
-		log.info(session.getAttribute("").toString());
-		
 		
 		log.info("갖고 있던 세션: " + obj.toString());
 		
@@ -72,7 +68,6 @@ public class MemberController {
 			session.removeAttribute("login");
 			session.invalidate();
 		}
-		log.info("삭제 후 세션: " + session.getAttribute("Session"));
 		log.info("끝");
 		return "redirect:/";
 	}
