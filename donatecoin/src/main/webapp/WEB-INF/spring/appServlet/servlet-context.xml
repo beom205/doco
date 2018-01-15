@@ -44,6 +44,8 @@
 		
 		<interceptor>
 			<mapping path="/blog-detail"/>
+			<mapping path="/request/register"/>
+			<mapping path="/campaign/register"/>
 			<beans:ref bean="authInterceptor"/>
 		</interceptor>
 	</interceptors>

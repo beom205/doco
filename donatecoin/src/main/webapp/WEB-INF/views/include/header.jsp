@@ -92,7 +92,7 @@ footer.page-footer {
 		</div>
 	</div>
 	<nav class="navbar navbar-expand-lg navbar-inverse navbar-dark cyan ">
-	<div class="container">
+	<div class="container" style="padding-left: 0px;">
 		<div class="container" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item nav-component-margin col"><a
@@ -112,7 +112,7 @@ footer.page-footer {
 							<B>지난 캠페인</B>
 						</h5></a></li>
 				<li class="nav-item nav-component-margin col"><a
-					class="nav-link waves-effect waves-light" href="#"><h5>
+					class="nav-link waves-effect waves-light" href="/request/register"><h5>
 							<B>캠페인 문의</B>
 						</h5></a></li>
 				<li class="nav-item nav-component-margin col"><a

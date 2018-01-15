@@ -89,7 +89,7 @@ footer.page-footer {
 			<div class="z-depth-1 grey lighten-4 row"
 				style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 				<h4 class="grey-text text-darken-1">로그인</h4>
-				<form class="col s12" method="post">
+				<form class="col s12" method="post" action="/member/loginPost">
 					<div class='row '>
 						<div class='col s12'></div>
 					</div>

@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
-<%@include file="../../views/include/header.jsp"%>
+<%@include file="../include/header.jsp"%>
 
 
 

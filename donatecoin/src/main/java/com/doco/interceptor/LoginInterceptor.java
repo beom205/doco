@@ -47,9 +47,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			 String resultDest = dest != null?(String)dest:"/";
 			 log.info("resultDest :   " + resultDest);
 			 response.sendRedirect(resultDest);
+			 return;
 		}
 		
-		//response.sendRedirect("/member/login");
+		response.sendRedirect("/member/login");
+		return;
 	}
 
 	

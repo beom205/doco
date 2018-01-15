@@ -7,7 +7,9 @@
 
 
 	<!--Main Layout-->
-	<main class="text-center py-5"> <!--Carousel Wrapper-->
+	<main class="text-center " style="
+    margin-top: 0px;
+    padding-top: 0px;"> <!--Carousel Wrapper-->
 	<div id="carousel-example-1z" class="carousel slide carousel-fade"
 		data-ride="carousel">
 		<!--Indicators-->

@@ -145,12 +145,12 @@ footer.page-footer {
 						</div>
 					</div>
 					<br>
-					<div class='row'>
+					<!-- <div class='row'>
 						<div class='input-field col s12'>
 							<input class='validate' type='email' name='email' id='email' />
 							<label for='email'>Enter your email</label>
 						</div>
-					</div>
+					</div> -->
 
 					<br> <input type="checkbox" class="filled-in"
 						id="filled-in-box" value="agree this condition"> <label
