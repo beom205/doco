@@ -62,10 +62,9 @@
 					</ul>
 
 					<button type="submit" class="btn btn-primary">Register</button>
-					<button type="submit" class="btn btn-danger">Cancel</button>
 				</div>
 			</div>
-		</form>
+		</form> 
 	</div>
 </section>
 
@@ -88,15 +87,9 @@
 </script>
 
 <script>
-$(document).ready(function(){
-	
-	var formObj = $("form[role='form']");
-	
 	$(".btn btn-danger").on("click", function(){
 		self.location = "/campaign/listPage";
 	});
-	
-});
 
 	var template = Handlebars.compile($("#template").html());
 

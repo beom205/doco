@@ -94,8 +94,7 @@ public class CampaignServiceImpl implements CampaignService{
 	
 	@Override
 	public List<String> getAttach2(Integer bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getMovie(bno);
 	}
 	
 	@Override

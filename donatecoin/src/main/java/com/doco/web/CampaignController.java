@@ -1,5 +1,6 @@
 package com.doco.web;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -8,11 +9,13 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
 import javax.inject.Inject;
 
 import com.doco.web.CampaignController;
 
 import org.apache.commons.io.IOUtils;
+import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -194,6 +197,8 @@ public class CampaignController {
 	@RequestMapping("/displayFile")
 	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception {
 
+		logger.info("뀨"+fileName);
+		
 		InputStream in = null;
 		ResponseEntity<byte[]> entity = null;
 
@@ -277,5 +282,5 @@ public class CampaignController {
 		return savedName;
 
 	}
-
+	
 }
