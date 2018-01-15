@@ -27,7 +27,7 @@
 					</c:forEach> 
 
 					<div class="card-body">
-						<span class="d-inline-block text-truncate" style="max-width: 150px;">
+						<span class="d-inline-block text-truncate" style="max-width: 350px;">
   							<h4 class="card-title">${campaign.title}</h4>
 						</span>
 						<p class="card-text">${campaign.writer}
