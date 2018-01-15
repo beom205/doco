@@ -84,7 +84,7 @@ footer.page-footer {
 			<div class="col"></div>
 			<div class="col login-padding ">
 				<span> <a href="#"><i class="fa fa-sign-in mr-1"><span
-							class="doco">&nbsp;Login</span></i></a> &nbsp; <a href="#"><i
+							class="doco">&nbsp;Login</span></i></a> &nbsp; <a href="/member/join"><i
 						class="fa fa-user" aria-hidden="true"><span class="doco">&nbsp;Join</span></i></a>
 				</span>
 			</div>

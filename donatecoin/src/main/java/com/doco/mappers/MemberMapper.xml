@@ -28,6 +28,10 @@
 	  	 where id = #{id} and password = #{password}
 	  </select>
 	  
-	  
+	  <select id="idCheck" resultType="string">
+	  	select id
+	  	 from dtb_member
+	  	where id=#{id}
+	  </select>
   </mapper>
   
