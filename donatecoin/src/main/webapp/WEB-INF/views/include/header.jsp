@@ -78,16 +78,18 @@ footer.page-footer {
 			<div class="col doco">
 				<h2 style="color: #48cfad">
 					<!-- <B style="color: #777777">D</B>oco -->
-					<a href="/"><B style="color: #777777;">D</B><span class="grey-text text-light-1">oco</span></a>
+					<a href="/"><B style="color: #777777;">D</B><span
+						class="grey-text text-light-1">oco</span></a>
 				</h2>
 			</div>
 			<div class="col"></div>
 			<div class="col"></div>
-			<div class="col login-padding ">
-				<span> <a href="/member/login"><i class="fa fa-sign-in mr-1"><span
-							class="doco">&nbsp;로그인</span></i></a> &nbsp; <a href="/member/join"><i
-						class="fa fa-user" aria-hidden="true"><span class="doco">&nbsp;회원가입</span></i></a>
-				</span>
+			<div class="topnav">
+				<!-- <span> <a href="/member/login"><i
+						class="fa fa-sign-in mr-1"><span class="doco">&nbsp;로그인</span></i></a>
+					&nbsp; <a href="/member/join"><i class="fa fa-user"
+						aria-hidden="true"><span class="doco">&nbsp;회원가입</span></i></a>
+				</span> --> 
 			</div>
 		</div>
 	</div>
@@ -104,7 +106,8 @@ footer.page-footer {
 							<B>Doco란</B>
 						</h5></a></li>
 				<li class="nav-item nav-component-margin col"><a
-					class="nav-link waves-effect waves-light" href="http://localhost:8000/campaign/displayMovie?fileName=movie.mp4"><h5>
+					class="nav-link waves-effect waves-light"
+					href="http://localhost:8000/campaign/displayMovie?fileName=movie.mp4"><h5>
 							<B>캠페인</B>
 						</h5></a></li>
 				<li class="nav-item nav-component-margin col"><a
@@ -124,3 +127,27 @@ footer.page-footer {
 	</div>
 	</nav> </header>
 	<!--End Main Navigation-->
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+	var $html = $(".topnav").html();
+	var $topnav = $(".topnav");
+	console.log("세션값" + '${login}');
+	
+	/* <a href="/member/login"><i
+	class="fa fa-sign-in mr-1"><span class="doco">&nbsp;로그인</span></i></a>
+&nbsp; <a href="/member/join"><i class="fa fa-user"
+	aria-hidden="true"><span class="doco">&nbsp;회원가입</span></i></a> */
+	 
+	if(document.cookie.indexOf("login=") != -1 || '${login}'){
+		$topnav.html($html + '<a href="/member/logout" class="right"><i class="fa fa-sign-out mr-1"><span class="doco">&nbsp; 로그아웃 </span></i></a>');
+
+	}else{
+		$topnav.html($html + '<a href="/member/login"><i class="fa fa-sign-in mr-1"><span class="doco">&nbsp;로그인</span></i></a> <a href="/member/join"><i class="fa fa-user" aria-hidden="true"><span class="doco">&nbsp;회원가입</span></i></a>');
+	}
+		
+});	
+</script>

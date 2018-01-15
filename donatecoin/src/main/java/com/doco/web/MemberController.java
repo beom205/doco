@@ -1,6 +1,11 @@
 package com.doco.web;
 
+import java.io.IOException;
+
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -10,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.util.WebUtils;
 
 import com.doco.domain.Member;
 import com.doco.service.MemberService;
@@ -45,6 +51,32 @@ public class MemberController {
 		model.addAttribute("msg",true);
 	}
 	
+	// 로그아웃
+	@GetMapping("/logout")
+	public String logoutGet(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+			throws IOException {
+		Object obj = session.getAttribute("login");
+		log.info("시작");
+		log.info(session.getAttribute("session").toString());
+		log.info(session.getAttribute("login").toString());
+		log.info(session.getAttribute("").toString());
+		
+		
+		log.info("갖고 있던 세션: " + obj.toString());
+		
+		
+		log.info("" + session.getAttribute("login"));
+		log.info("" + WebUtils.getCookie(request, "login"));
+		
+		if (obj != null) {
+			session.removeAttribute("login");
+			session.invalidate();
+		}
+		log.info("삭제 후 세션: " + session.getAttribute("Session"));
+		log.info("끝");
+		return "redirect:/";
+	}
+
 	@PostMapping("/idCheck")
 	@ResponseBody
 	public Integer idCheck(String id) {
@@ -70,7 +102,7 @@ public class MemberController {
 		log.info("한글 이름 : " + vo.getName());
 		
 		mService.register(vo);
-		
+
 		return "redirect:/";
 	}
 }

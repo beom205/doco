@@ -29,15 +29,15 @@
 			<div class="card-body">
 				<!--Body-->
 				<div class="md-form">
-					<i class="fa fa-user prefix grey-text"></i> <input name="writer"
-						type="text" id="form-name" class="form-control"
-						placeholder="캠페인 글쓴이">
-				</div>
-
-				<div class="md-form">
 					<i class="fa fa-paper-plane prefix grey-text"></i> <input name="title"
 						type="text" id="form-email" class="form-control"
 						placeholder="캠페인 제목">
+				</div>
+				 
+				<div class="md-form">
+					<i class="fa fa-user prefix grey-text"></i> <input name="writer"
+						type="text" id="form-name" class="form-control"
+						placeholder="캠페인 요청 단체">
 				</div>
 
 				<div class="md-form">
@@ -79,17 +79,24 @@
   <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
   <div class="mailbox-attachment-info">
 	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
-	<a href="{{fullName}}" 
-     class="btn btn-default btn-xs pull-right delbtn"><i cl	ass="fa fa-fw fa-remove"></i></a>
+	<a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn"><i class="fa fa-fw fa-remove"></i></a>
 	</span>
   </div>
 </li>
 </script>
 
 <script>
-	$(".btn btn-danger").on("click", function(){
+$(document).ready(function() {
+
+	var formObj = $("form[role='form']");
+
+	$(".btn-primary").on("click", function() {
+		alert("등록되었습니다.");
 		self.location = "/campaign/listPage";
 	});
+
+});
+
 
 	var template = Handlebars.compile($("#template").html());
 
