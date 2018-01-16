@@ -1,220 +1,153 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Developed By M Abdur Rokib Promy">
-    <meta name="author" content="cosmic">
-    <meta name="keywords" content="Bootstrap 3, Template, Theme, Responsive, Corporate, Business">
-    <link rel="shortcut icon" href="img/favicon.png">
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Material Design Bootstrap</title>
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap core CSS -->
+<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="/resources/css/mdb.min.css" rel="stylesheet">
+<!-- Your custom styles (optional) -->
+<link href="/resources/css/style.css" rel="stylesheet">
 
-    <title>
-      Acme | Home
-    </title>
+<style rel="stylesheet">
+main {
+	margin-top: 3rem;
+}
 
-    <!-- Bootstrap core CSS -->
-    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/css/theme.css" rel="stylesheet">
-    <link href="/resources/css/bootstrap-reset.css" rel="stylesheet">
-    <!-- <link href="/resources/css/bootstrap.min.css" rel="stylesheet">-->
+.doco {
+	color: #777;
+}
 
-    <!--external css-->
-    <link href="/resources/assets/font-awesome//resources/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/resources/css/flexslider.css"/>
-    <link href="/resources/assets/bxslider/jquery.bxslider.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/resources/css/animate.css">
-    <link rel="stylesheet" href="/resources/assets/owlcarousel/owl.carousel.css">
-    <link rel="stylesheet" href="/resources/assets/owlcarousel/owl.theme.css">
+.nav-top {
+	margin-top: 25px;
+	margin-bottom: 20px;
+}
 
-    <link href="/resources/css/superfish.css" rel="stylesheet" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+.nav-component-margin {
+	margin-right: 30px;
+	padding-top: 7px;
+}
 
+.login-padding {
+	padding-top: 13px;
+}
 
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="/resources/css/component.css">
-    <link href="/resources/css/style.css" rel="stylesheet">
-    <link href="/resources/css/style-responsive.css" rel="stylesheet" />
+main .card {
+	margin-bottom: 2rem;
+}
 
-    <link rel="stylesheet" type="text/css" href="/resources/css/parallax-slider/parallax-slider.css" />
-    <script type="text/javascript" src="/resources/js/parallax-slider/modernizr.custom.28468.js">
-    </script>
+@media only screen and (max-width: 768px) {
+	.read-more {
+		text-align: center;
+	}
+}
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
-    <!--[if lt IE 9]>
-    <script src="/resources/js/html5shiv.js">
-    </script>
-    <script src="/resources/js/respond.min.js">
-    </script>
-    <![endif]-->
-  </head>
+.navbar {
+	background-color: #0f6256;
+}
 
-  <body>
-    <!--header start-->
-    <header class="head-section">
-      <div class="navbar navbar-default navbar-static-top container">
-          <div class="navbar-header">
-              <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="index.html">A<span>cme</span></a>
-          </div>
-          <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                  <li class="dropdown">
-                      <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover=
-                      "dropdown" data-toggle="dropdown" href="index.html">Home <i class="fa fa-angle-down"></i>
-                      </a>
-                      <ul class="dropdown-menu">
-                          <li>
-                              <a href="index.html">Home Parallax</a>
-                          </li>
-                          <li>
-                              <a href="index1.html">Home Seq-slider1</a>
-                          </li>
-                          <li>
-                              <a href="index2.html">Home Seq-slider2</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li class="dropdown">
-                      <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover=
-                      "dropdown" data-toggle="dropdown" href="#">Feature <i class="fa fa-angle-down"></i>
-                      </a>
-                      <ul class="dropdown-menu">
-                          <li>
-                              <a href="typography.html">Typography</a>
-                          </li>
-                          <li>
-                              <a href="button.html">Buttons</a>
-                          </li>
-                          <li>
-                              <a href="form.html">Form</a>
-                          </li>
-                          <li>
-                              <a href="table.html">Table</a>
-                          </li>
-                          <li class="dropdown-submenu">
-                              <a href="#" tabindex="-1">More options</a>
-                              <ul class="dropdown-menu">
-                                  <li>
-                                      <a href="#" tabindex="-1">Second level</a>
-                                  </li>
-                                  <li class="dropdown-submenu">
-                                      <a href="#">Even More..</a>
-                                      <ul class="dropdown-menu">
-                                          <li>
-                                              <a href="#">3rd level</a>
-                                          </li>
-                                          <li>
-                                              <a href="#">3rd level</a>
-                                          </li>
-                                      </ul>
-                                  </li>
-                                  <li>
-                                      <a href="#">Second level</a>
-                                  </li>
-                                  <li>
-                                      <a href="#">Second level</a>
-                                  </li>
-                              </ul>
-                          </li>
-                      </ul>
-                  </li>
-                  <li class="dropdown">
-                      <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover=
-                      "dropdown" data-toggle="dropdown" href="#">Pages <i class="fa fa-angle-down"></i>
-                      </a>
-                      <ul class="dropdown-menu">
-                          <li>
-                              <a href="about.html">About</a>
-                          </li>
-                          <li>
-                              <a href="404.html">404 page</a>
-                          </li>
-                          <li>
-                              <a href="career.html">career</a>
-                          </li>
-                          <li>
-                              <a href="/member/login.html">Login</a>
-                          </li>
-                          <li>
-                              <a href="registration.html">Registration</a>
-                          </li>
-                          <li>
-                              <a href="faq.html">FAQ</a>
-                          </li>
-                          <li class="dropdown-submenu">
-                              <a href="#" tabindex="-1">Pricing table</a>
-                              <ul class="dropdown-menu">
-                                  <li class="dropdown-submenu"></li>
-                                  <li>
-                                      <a href="price-table-one.html">Pricing table one</a>
-                                  </li>
-                                  <li>
-                                      <a href="price-table-two.html">Pricing table two</a>
-                                  </li>
-                              </ul>
-                          </li>
-                          <li>
-                              <a href="service.html">Service</a>
-                          </li>
-                          <li>
-                              <a href="terms.html">Terms & Condition</a>
-                          </li>
-                          <li>
-                              <a href="privacy.html">Privacy policy</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li class="dropdown">
-                      <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover=
-                      "dropdown" data-toggle="dropdown" href="#">Portfolio <i class="fa fa-angle-down"></i>
-                      </a>
-                      <ul class="dropdown-menu">
-                          <li>
-                              <a href="portfolio-3-col.html">Portfolio 3 column</a>
-                          </li>
-                          <li>
-                              <a href="portfolio-4-col.html">Portfolio 4 column</a>
-                          </li>
-                          <li>
-                              <a href="portfolio-single-image.html">Portfolio Single Image</a>
-                          </li>
-                          <li>
-                              <a href="portfolio-single-video.html">Portfolio Single Video</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li class="dropdown">
-                      <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover=
-                      "dropdown" data-toggle="dropdown" href="#">Blog <i class="fa fa-angle-down"></i>
-                      </a>
-                      <ul class="dropdown-menu">
-                          <li>
-                              <a href="blog.html">Blog</a>
-                          </li>
-                          <li>
-                              <a href="blog-two-col.html">Blog two column</a>
-                          </li>
-                          <li>
-                              <a href="blog-detail.html">Blog Single Image</a>
-                          </li>
-                          <li>
-                              <a href="blog-detail-video.html">Blog single video</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                      <a href="contact.html">Contact</a>
-                  </li>
-                  <li><input class="form-control search" placeholder=" Search" type="text"></li>
-              </ul>
-          </div>
-      </div>
-    </header>
-    <!--header end-->
+footer.page-footer {
+	background-color: #0f6256;
+	margin-top: 2rem;
+}
+
+.navbar .btn-group .dropdown-menu a:hover {
+	color: #000 !important;
+}
+
+.navbar .btn-group .dropdown-menu a:active {
+	color: #fff !important;
+}
+</style>
+</head>
+<body>
+	<!--Main Navigation-->
+	<header>
+	<div class="container nav-top">
+		<div class="row">
+
+			<div class="col doco">
+				<h2 style="color: #48cfad">
+					<!-- <B style="color: #777777">D</B>oco -->
+					<a href="/"><B style="color: #777777;">D</B><span
+						class="grey-text text-light-1">oco</span></a>
+				</h2>
+			</div>
+			<div class="col"></div>
+			<div class="col"></div>
+			<div class="topnav">
+				<!-- <span> <a href="/member/login"><i
+						class="fa fa-sign-in mr-1"><span class="doco">&nbsp;로그인</span></i></a>
+					&nbsp; <a href="/member/join"><i class="fa fa-user"
+						aria-hidden="true"><span class="doco">&nbsp;회원가입</span></i></a>
+				</span> --> 
+			</div>
+		</div>
+	</div>
+	<nav class="navbar navbar-expand-lg navbar-inverse navbar-dark cyan ">
+	<div class="container" style="padding-left: 0px;">
+		<div class="container" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item nav-component-margin col"><a
+					class="nav-link waves-effect waves-light" href="#"><h5>
+							<B>홈으로 </B>
+						</h5> <span class="sr-only">(current)</span></a></li>
+				<li class="nav-item nav-component-margin col"><a
+					class="nav-link waves-effect waves-light" href="#"><h5>
+							<B>Doco란</B>
+						</h5></a></li>
+				<li class="nav-item nav-component-margin col"><a
+					class="nav-link waves-effect waves-light"
+					href="http://localhost:8000/campaign/displayMovie?fileName=movie.mp4"><h5>
+							<span class="new badge red">new</span><B>캠페인</B>
+						</h5></a></li>
+				<li class="nav-item nav-component-margin col"><a
+					class="nav-link waves-effect waves-light" href="/campaign/listPage"><h5>
+							<B>지난 캠페인</B>
+						</h5></a></li>
+				<li class="nav-item nav-component-margin col"><a
+					class="nav-link waves-effect waves-light" href="/request/register"><h5>
+							<B>캠페인 문의</B>
+						</h5></a></li>
+				<li class="nav-item nav-component-margin col"><a
+					class="nav-link waves-effect waves-light" href="/campaign/register"><h5>
+							<B>캠페인 등록</B>
+						</h5></a></li>
+			</ul>
+		</div>
+	</div>
+	</nav> </header>
+	<!--End Main Navigation-->
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+	var $html = $(".topnav").html();
+	var $topnav = $(".topnav");
+	console.log("세션값" + '${login}');
+	
+	/* <a href="/member/login"><i
+	class="fa fa-sign-in mr-1"><span class="doco">&nbsp;로그인</span></i></a>
+&nbsp; <a href="/member/join"><i class="fa fa-user"
+	aria-hidden="true"><span class="doco">&nbsp;회원가입</span></i></a> */
+	 
+	if(document.cookie.indexOf("login=") != -1 || '${login}'){
+		$topnav.html($html + '<a href="/member/logout" class="right"><i class="fa fa-sign-out mr-1"><span class="doco">&nbsp; 로그아웃 </span></i></a>');
+
+	}else{
+		$topnav.html($html + '<a href="/member/login"><i class="fa fa-sign-in mr-1"><span class="doco">&nbsp;로그인</span></i></a> <a href="/member/join"><i class="fa fa-user" aria-hidden="true"><span class="doco">&nbsp;회원가입</span></i></a>');
+	}
+		
+});	
+</script>
