@@ -20,7 +20,7 @@
 <table class="table table-sm">
   <thead>
     <tr>
-      <th>No</th>
+      <th>글번호</th>
       <th>글쓴이 </th>
       <th>제목</th>
       <th>등록일</th>
@@ -29,10 +29,9 @@
   <tbody>
   <c:forEach items="${list}" var="Request"> 
     <tr class="table-warning">
-      <td>${Request.no}</td>
-      <td>Mark</td>
+      <td style="text-align: center;">${Request.no}</td>
+      <td>${Request.id}</td>
       <td><a href="/request/read?no=${Request.no}">${Request.title}</a></td>
-      <td>${Request.title}</td>
        <td>${Request.reg_date}</td>
     </tr>
    </c:forEach> 
