@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.doco.mappers.PhotoMapper">
+  
+	  <insert id="registPhoto">
+	<selectKey resultType="int" keyProperty="no" order="BEFORE">
+		SELECT MAX(no) FROM dtb_donation_req
+	</selectKey>
+	insert into dtb_photo(no, fullname)
+	 values (#{no}, #{fullname})
+	</insert>
+
+	<select id="readPhoto" resultType="Photo">
+		select fullname from dtb_photo 
+		where no = #{no} 
+	</select>
+	
+	<update id="modiPhoto">
+	update dtb_photo set fullname
+	 where no = #{no}
+	</update>
+	
+	<delete id="delPhoto">
+		delete from dtb_photo where no = #{no}
+	</delete>
+  
+  </mapper>

@@ -13,6 +13,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.FileCopyUtils;
 
+import lombok.extern.java.Log;
+
+@Log
 public class UploadFileUtils {
 
   private static final Logger logger = 
@@ -46,7 +49,7 @@ public class UploadFileUtils {
     String uploadedFileName = null;
     
     if(MediaUtils.getMediaType(formatName) != null){
-      uploadedFileName = makeThumbnail(uploadPath, savedPath, savedName);
+      uploadedFileName = makeThumbnail2(uploadPath, savedPath, savedName);
     }else{
       uploadedFileName = makeIcon(uploadPath, savedPath, savedName);
     }
@@ -67,7 +70,7 @@ public class UploadFileUtils {
   }
   
   
-  private static  String makeThumbnail(
+  private static  String makeThumbnail2(
               String uploadPath, 
               String path, 
               String fileName)throws Exception{
@@ -93,6 +96,24 @@ public class UploadFileUtils {
     return thumbnailName.substring(
         uploadPath.length()).replace(File.separatorChar, '/');
   }
+  
+  public static String makeThumbnail(String fileName) throws Exception {
+      BufferedImage sourceImg =
+               ImageIO.read(new File("C:\\upload\\", fileName));
+      BufferedImage destImg =
+               Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 100);
+      //s_를 붙이는 이유는 얘가 썸네일인지 아닌지 구분해야하기 떄문에 s_로 시작하면 썸네일, 없으면 일반 파일
+      String thumbnailName =
+               "C:\\upload\\" + File.separator + "s_" + fileName;
+      
+      File newFile = new File(thumbnailName);  //
+      String formatName =
+               fileName.substring(fileName.lastIndexOf(".") + 1);
+      ImageIO.write(destImg, formatName.toUpperCase(), newFile);
+      
+      log.info(thumbnailName);
+      return thumbnailName;
+ }
   
   
   private static String calcPath(String uploadPath){

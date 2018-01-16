@@ -1,35 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ include file="../include/header.jsp" %>
+ <%@ include file="../include/header.jsp" %>     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
-  <title>Donation Request</title>
- <style>
-	
-.fileDrop {
-	width: 80%;
-	height: 100px;
-	border: 1px dotted gray;
-	background-color: lightslategrey;
-	margin: auto;
-}
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">  -->
+  <title>캠페인 문의하기/DOCO</title>
 
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>  
+ <style>
+ 
  </style> 
 </head>
 <body>
 <section class="py-3">
 	<!--Section heading-->
 	<div class="container">
-		<h2 class="font-bold text-center h1 py-5">캠페인 요청</h2>
+		<h2 class="font-bold text-center h1 py-5">등록</h2>
 
 		<form id='registerForm' role="form" method="post" enctype="multipart/form-data">
 			<div class="card-body">
 				<!--Body-->
 				<div class="md-form">
-					<i class="fa fa-user prefix grey-text"></i> <input name="writer"
+					<i class="fa fa-user prefix grey-text"></i> <input name="id"
 						type="text" id="form-name" class="form-control"
 						placeholder="캠페인 글쓴이">
 				</div>
@@ -56,29 +52,24 @@
 					<label>시작일<input type="date" id="periodStart"/></label>
 					<label>종료일<input type="date" id="periodStop"/></label>
 		 		<br><br>
-		 	
-		 		<div class="md-form">
-					<i class="fa fa-image prefix grey-text"></i> 
-					<div class="fileDrop"></div>
-				</div>
 		 		
 				<div class="md-form">
 					<i class="fa fa-video-camera prefix grey-text"></i>
 					<input type='file' name='f1'>
 				</div>
 				
-				<div class="md-form">
+				<!-- <div class="md-form">
 					<i class="fa fa-hand-o-right prefix grey-text"></i>
 					<input type="password" id="password" placeholder="password(대소문자 8자이상)">
-				</div>
-					
+				</div> -->
+					<br>
 				<div class="box-footer">
 
 					<ul class="mailbox-attachments clearfix uploadedList">
 					</ul>
 					
-					<button type="submit" class="btn btn-primary">Register</button>
-					<button type="submit" class="btn btn-danger">Cancel</button>
+					<button type="submit" class="btn btn-primary">등록</button>
+					<button type="submit" class="btn btn-danger">취소</button>
 				</div>
 			</div>
 		</form>

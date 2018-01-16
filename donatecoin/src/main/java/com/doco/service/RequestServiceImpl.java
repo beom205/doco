@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.doco.domain.Photo;
 import com.doco.domain.Request;
-import com.doco.mappers.AttachMapper;
+import com.doco.mappers.PhotoMapper;
 import com.doco.mappers.RequestMapper;
 
 import lombok.extern.java.Log;
@@ -17,61 +18,52 @@ import lombok.extern.java.Log;
 public class RequestServiceImpl implements RequestService {
 
 	@Autowired
-	private RequestMapper mapper;
+	private RequestMapper mapper; 
 	
 	@Autowired
-	private AttachMapper attachmapper;
-	
-	@Override
-	public void register(Request request) {
-		log.info("register");
-		mapper.create(request);
-	}
+	private PhotoMapper pMapper;
 	
 	@Override
 	@Transactional
-	public void register(Request request, String[] files) {
+	public int regist(Request request,Photo photo) {
+		log.info("register");
 		mapper.create(request);
-	for(int i  = 0; i < files.length; i++) {
-		attachmapper.addAttach(1L, files[i]);
-	   }
-	}
+		int pno = mapper.readRNO();
+		photo.setNo(pno);
+		log.info("아아아아이럼안됨 ");
+		if(photo != null) {
+			log.info("dddd"+photo);
+			pMapper.registPhoto(photo);
+		}
+			return pno;
+		}
 
+ 	@Override
+	public Request read(Integer no) {
+ 		return mapper.read(no);
+	
+ 	}
+	
 	@Override
-	public Request get(Integer no) {
-		log.info("get");
-		return mapper.read(no);
-	}
-
-	@Override
-	public void modify(Request request) {
-		log.info("modify");
+	@Transactional
+	public void modify(Request request,Photo photo) {
+		mapper.update(request);
+		pMapper.modiPhoto(photo);
 	}
 
 	@Override
 	public void remove(Integer no) {
-		log.info("remove");		
 		mapper.delete(no);
 	}
-
+	
 	@Override
 	public List<Request> listAll() {
 		return mapper.listAll();
 	}
 
-
-//	@Override
-//	public List<Request> getList(Criteria cri) {
-//		
-//		return mapper.getList2(cri);
-//	}
-//
-//	@Override
-//	public int getListCount(Criteria cri) {
-//		
-//		return mapper.getTotal(cri);
-//	}
-
-
+	@Override
+	public Photo getPhoto(Integer no) {
+		return pMapper.readPhoto(no);
+	}
 
 }
