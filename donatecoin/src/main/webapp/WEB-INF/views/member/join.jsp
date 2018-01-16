@@ -170,59 +170,7 @@ footer.page-footer {
 
 	<div class="section"></div>
 	<div class="section"></div>
-	<div class="container">
-		<div id="login-page" class="row">
-			<div class="col s12 z-depth-4 card-panel">
-				<form class="login-form">
-					<div class="row">
-						<div class="input-field col s12 center">
-							<h4>Register</h4>
-							<p class="center">Join to our community now !</p>
-						</div>
-					</div>
-					<div class="row margin">
-						<div class="input-field col s12">
-							<i class="mdi-social-person-outline prefix"></i> <input
-								id="username" type="text"> <label for="username"
-								class="center-align">Username</label>
-						</div>
-					</div>
-					<div class="row margin">
-						<div class="input-field col s12">
-							<i class="mdi-communication-email prefix"></i> <input id="email"
-								type="email"> <label for="email" class="center-align">Email</label>
-						</div>
-					</div>
-					<div class="row margin">
-						<div class="input-field col s12">
-							<i class="mdi-action-lock-outline prefix"></i> <input
-								id="password" type="password"> <label for="password"
-								class="">Password</label>
-						</div>
-					</div>
-					<div class="row margin">
-						<div class="input-field col s12">
-							<i class="mdi-action-lock-outline prefix"></i> <input
-								id="password-again" type="password"> <label
-								for="password-again" class="">Password again</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<a href="index.html" class="btn waves-effect waves-light col s12">Register
-								Now</a>
-						</div>
-						<div class="input-field col s12">
-							<p class="margin center medium-small sign-up">
-								Already have an account? <a href="page-login.html">Login</a>
-							</p>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-		
-	</div>
+	
 	</main>
 
 	<!-- <script type="text/javascript"
