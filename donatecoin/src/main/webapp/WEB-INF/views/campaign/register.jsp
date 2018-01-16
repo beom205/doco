@@ -45,7 +45,18 @@
 					<textarea name="content" type="text" id="form-text"
 						class="md-textarea" placeholder="캠페인 내용"></textarea>
 				</div>
-
+				
+				<div class="md-form">
+				<i class="fa fa-calendar-o prefix grey-text"></i>
+				<label>캠페인등록기간</label>
+				</div>
+				
+				<br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<label>시작일<input name="periodStart" type="date" id="periodStart"/></label>
+					<label>종료일<input name="periodStop" type="date" id="periodStop"/></label>
+		 		<br><br>
+				
 				<div class="md-form">
 					<i class="fa fa-image prefix grey-text"></i> 
 					<div class="fileDrop"></div>

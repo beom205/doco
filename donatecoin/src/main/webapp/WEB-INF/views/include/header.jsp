@@ -85,11 +85,6 @@ footer.page-footer {
 			<div class="col"></div>
 			<div class="col"></div>
 			<div class="topnav">
-				<!-- <span> <a href="/member/login"><i
-						class="fa fa-sign-in mr-1"><span class="doco">&nbsp;로그인</span></i></a>
-					&nbsp; <a href="/member/join"><i class="fa fa-user"
-						aria-hidden="true"><span class="doco">&nbsp;회원가입</span></i></a>
-				</span> --> 
 			</div>
 		</div>
 	</div>
@@ -137,11 +132,6 @@ $(document).ready(function(){
 	var $topnav = $(".topnav");
 	console.log("세션값" + '${login}');
 	
-	/* <a href="/member/login"><i
-	class="fa fa-sign-in mr-1"><span class="doco">&nbsp;로그인</span></i></a>
-&nbsp; <a href="/member/join"><i class="fa fa-user"
-	aria-hidden="true"><span class="doco">&nbsp;회원가입</span></i></a> */
-	 
 	if(document.cookie.indexOf("login=") != -1 || '${login}'){
 		$topnav.html($html + '<a href="/member/logout" class="right"><i class="fa fa-sign-out mr-1"><span class="doco">&nbsp; 로그아웃 </span></i></a>');
 

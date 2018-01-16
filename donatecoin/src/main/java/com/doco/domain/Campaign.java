@@ -11,7 +11,21 @@ public class Campaign {
 	private String[] files;
 	private String fullName;
 	private String movieFile;
+	private String periodStart;
+	private String periodStop;
 	
+	public String getPeriodStart() {
+		return periodStart;
+	}
+	public void setPeriodStart(String periodStart) {
+		this.periodStart = periodStart;
+	}
+	public String getPeriodStop() {
+		return periodStop;
+	}
+	public void setPeriodStop(String periodStop) {
+		this.periodStop = periodStop;
+	}
 	public String getFullName() {
 		return fullName;
 	}

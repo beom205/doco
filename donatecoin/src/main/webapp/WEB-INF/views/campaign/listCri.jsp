@@ -35,7 +35,7 @@
 		<td>${campaign.bno}</td>
 		<td><a href='/campaign/read?bno=${campaign.bno}'>${campaign.title}</a></td>
 		<td>${campaign.writer}</td>
-		<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${campaign.regdate}" /></td>
+		<%-- <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${campaign.regdate}" /></td> --%>
 		<td><span class="badge bg-red">${campaign.viewcnt }</span></td>
 	</tr>
 

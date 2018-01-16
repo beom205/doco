@@ -66,9 +66,10 @@ flowplayer {
 	<div class="container">
 		<div>
 			<h2 class="font-bold text-center h1 py-5">${campaign1.title}</h2>
+			<h6 class="text-right">${campaign1.periodStart} ${campaign1.periodStop}</h6>
 			<h5 class="text-right">${campaign1.writer}</h5>
 			<br> <br>
-		</div>
+		</div> 
 		<div class="md-form">
 			<h5 style="line-height: 35px;">${campaign1.content}</h5>
 		</div>

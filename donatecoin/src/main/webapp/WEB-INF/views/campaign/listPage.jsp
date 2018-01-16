@@ -16,31 +16,26 @@
 </main>
 <div class="container">
 	<div class="row">
-
 		<c:forEach items="${list}" var="campaign"> 
 			<div class="col-md-4  d-none d-md-block" style="height: 450px; margin-bottom: 6   0px;">
-			
 				<div class="card">
 					<c:forEach items="${campaign.fullName}" var="cp">
 						<img class="img-fluid" src="displayFile?fileName=${cp}"
 							alt="Card image cap" style="height: 250px;">
 					</c:forEach> 
-
 					<div class="card-body">
 						<span class="d-inline-block text-truncate" style="max-width: 300px;">
   							<h4 class="card-title blue-grey-text text-darken-4"><b>${campaign.title}</b></h4>
 						</span>
-						<p class="card-text">${campaign.writer}
-							&nbsp; &nbsp;
-							<fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-								value="${campaign.regdate}" />
-						</p>
+						<p class="card-text">${campaign.writer}</p>
+							<!-- &nbsp; &nbsp; -->
+							<%-- <fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+								value="${campaign.regdate}" /> --%>
 						<a class="btn btn-primary" href='/campaign/readPage${pageMaker.makeQuery(pageMaker.cri.page) }&bno=${campaign.bno}'>자세히 보기</a>
 					</div>
 				</div>
 			</div>
 		</c:forEach>
-		
 	</div>
 </div>
 
