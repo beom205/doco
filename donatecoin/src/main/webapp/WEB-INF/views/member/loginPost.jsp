@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>여기닷!</h2>
-	<script type="text/javascript">
-		//self.location = "/sboard/list";
-	</script>
+
 </body>
 </html>
