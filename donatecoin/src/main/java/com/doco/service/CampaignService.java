@@ -28,4 +28,6 @@ public interface CampaignService {
 	
 	public List<String> getMoive(Integer bno)throws Exception;
 	
+	public Campaign recent()throws Exception;
+	
 }

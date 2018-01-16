@@ -85,6 +85,7 @@ public class CampaignController {
 		// return "/board/success";
 		return "redirect:/campaign/listPage";
 	}
+	
 	// 전체목록
 	/*
 	 * @RequestMapping(value = "/listAll", method = RequestMethod.GET) public void
@@ -95,11 +96,11 @@ public class CampaignController {
 	 */
 
 	// 조회하기
-	@RequestMapping(value = "/read", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
 		//model.addAttribute("read", service.read(bno));
 		model.addAttribute(service.read(bno));
-	}
+	}*/
 
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
@@ -107,6 +108,14 @@ public class CampaignController {
 		model.addAttribute("campaign1", service.read(bno));
 		model.addAttribute("campaign2", service.getAttach(bno));
 		model.addAttribute("campaign3", service.getMoive(bno));
+	}
+	
+	@RequestMapping(value = "/recent", method = RequestMethod.GET)
+	public String recent(Model model) throws Exception {
+
+		model.addAttribute("campaign1", service.recent());
+		
+		return "/campaign/readPage";
 	}
 
 	// 수정하기

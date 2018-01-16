@@ -37,5 +37,7 @@ public interface CampaignDAO {
 	 public void deleteAttach2(Integer bno)throws Exception;
 	  
 	public void replaceAttach(String fullName, Integer bno) throws Exception;
+	
+	public Campaign recent() throws Exception;
 
 }

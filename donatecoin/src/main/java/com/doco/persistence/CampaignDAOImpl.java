@@ -112,4 +112,9 @@ public class CampaignDAOImpl implements CampaignDAO {
 		session.insert(namespace + ".replaceAttach", paramMap);
 
 	}
+
+	@Override
+	public Campaign recent() throws Exception {
+		return session.selectOne(namespace + ".recent");
+	}
 }
