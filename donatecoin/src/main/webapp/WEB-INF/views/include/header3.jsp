@@ -7,6 +7,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Material Design Bootstrap</title>
 <!-- Font Awesome -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -158,10 +159,6 @@ $(document).ready(function(){
 	}else{
 		$topnav.html($html + '<a href="/member/login"><i class="fa fa-sign-in mr-1"><span class="doco">&nbsp;로그인</span></i></a> <a href="/member/join"><i class="fa fa-user" aria-hidden="true"><span class="doco">&nbsp;회원가입</span></i></a>');
 	}
-	
-	 /* if(session.getAttribute("sessionID")!=null && session.getAttribute("sessionID").equals("admin")){
-		$topnav.html($html + '<a href="/member/logout" class="right"><i class="fa fa-sign-out mr-1"><span class="doco">&nbsp; 로그아웃(관리자) </span></i></a>'
-    } */
 		
 });	
 </script>
