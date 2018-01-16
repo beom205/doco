@@ -43,7 +43,7 @@
 	position: relative;
 	max-width: 1200px;
 	max-height: 800px;
-	overflow: auto;
+	/* overflow: auto; */
 }
 
 flowplayer {
