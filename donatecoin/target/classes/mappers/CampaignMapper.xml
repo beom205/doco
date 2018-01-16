@@ -5,6 +5,11 @@
 
 <mapper namespace="com.doco.mapper.CampaignMapper">
 
+	<select id="recent" resultType="com.doco.domain.Campaign">
+		select * from dtb_campaign 
+		where bno = (select max(bno) from dtb_campaign);
+	</select>
+
 	<insert id="create">
 		insert into dtb_campaign (title, content, writer)
 		values

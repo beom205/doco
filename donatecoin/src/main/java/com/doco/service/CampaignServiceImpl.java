@@ -102,5 +102,10 @@ public class CampaignServiceImpl implements CampaignService{
 		return dao.getMovie(bno);
 	}
 
+	@Override
+	public Campaign recent() throws Exception {
+		return dao.recent();
+	}
+
 
 }
