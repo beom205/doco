@@ -32,7 +32,8 @@
       <td style="text-align: center;">${Request.no}</td>
       <td>${Request.id}</td>
       <td><a href="/request/read?no=${Request.no}">${Request.title}</a></td>
-       <td>${Request.reg_date}</td>
+      <td>${Request.reg_date}</td>
+
     </tr>
    </c:forEach> 
   </tbody>

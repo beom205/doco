@@ -6,8 +6,8 @@
   
   <!-- 등록 -->
   <insert id="create">
-  	insert into dtb_donation_req (id,periodStart, periodStop, password, title, content, address) 
-			values (#{id}, #{periodStart}, #{periodStop}, #{password}, #{title}, #{content}, #{address})
+  	insert into dtb_donation_req (id,periodStart, periodStop, password, title, content, address, reg_date) 
+			values (#{id}, #{periodStart}, #{periodStop}, #{password}, #{title}, #{content}, #{address}, #{reg_date})
   </insert>
   	
   <!-- 조회 -->

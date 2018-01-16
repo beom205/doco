@@ -9,6 +9,6 @@ public class Request {
 
 	private int no;
 	private String id, periodStart,periodStop,password,title,content,address;
-	private Date reg_date;
+	private String reg_date;
 	
 }

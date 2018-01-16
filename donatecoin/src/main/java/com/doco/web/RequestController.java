@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -79,6 +81,10 @@ public class RequestController {
 		log.info("" + request);
 		//photo.setFullname(uploadName);
 		
+		String reg_date = (new SimpleDateFormat("yyyy/MM/dd HH:mm")).format( new Date() );
+		log.info("reg_date"+reg_date);
+		request.setReg_date(reg_date);
+		log.info("request" + request);
 		int registRNO = service.regist(request, photo);
 		
 		rttr.addFlashAttribute("result", "success");

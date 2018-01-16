@@ -49,8 +49,9 @@
 					
 					<br><br>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<label>시작일<input type="date" id="periodStart"/></label>
-					<label>종료일<input type="date" id="periodStop"/></label>
+					<label>시작일<input type="date" name="periodStart" id="periodStart"/></label>
+					<label>종료일<input type="date" name="periodStop" id="periodStop"/></label>
+					
 		 		<br><br>
 		 		
 				<div class="md-form">
@@ -58,10 +59,7 @@
 					<input type='file' name='f1'>
 				</div>
 				
-				<!-- <div class="md-form">
-					<i class="fa fa-hand-o-right prefix grey-text"></i>
-					<input type="password" id="password" placeholder="password(대소문자 8자이상)">
-				</div> -->
+				
 					<br>
 				<div class="box-footer">
 
@@ -76,38 +74,6 @@
 	</div>
 </section>
 
-<!--  
-<div class="container" style="align:center; border-radius:5px; border:1px solid #d3d3d3; margin-top:20px; min-height:500px; width:100%;">
-<br>
-<h3>캠페인 요청</h3>
-<br>
-    <form id="frm" name="frm" enctype="multipart/form-data" method="post" action="${path}/request/register" >
-    	<fieldset>
-	   <label for="title">제목</label>
-			<input type="text" id="title" name="title" class="wdp_90" onFocus="clearText(this)"></input>
-        <label for="content">내용</label>               
-             <textarea rows="50" cols="100" title="내용" id="content" name="content" style="overflow:auto;"></textarea>
- 
-                <textarea title="내용" id="content" name="content"  class="wysihtml5-sandbox" security="restricted" allowtransparency="true" frameborder="0" width="100%" height="0" marginwidth="0" marginheight="0" style="display: block; background-color: rgb(255, 255, 255); border-collapse: separate; border-color: rgb(210, 214, 222); border-style: solid; border-width: 1px; clear: none; float: none; margin: 0px; outline: rgb(85, 85, 85) none 0px; outline-offset: 0px; padding: 6px 12px; position: static; top: auto; left: auto; right: auto; bottom: auto; z-index: auto; vertical-align: baseline; text-align: start; box-sizing: border-box; box-shadow: none; border-radius: 0px; width: 100%; height: 300px;"></textarea>
-
- 		<br><br>
- 		<label><input type="date"  id="start"/></label>
- 		<label><input type="date" id="stop"/></label>
- 		<br><br>
- 		
-       <div id="fileDiv">
-       	<label>첨부파일</label>
-                <input type="file" name="f1">
-                <a href="#this" class="btn cyan" id="delete" name="delete" style="">삭제</a>
-        </div>
-    </fieldset>     
-        <br/><br/>
-        <a href="#this"  class="btn cyan" id="addFile" style="">파일 추가</a>
-        <a href="#this" class="btn cyan" id="write" style="">작성하기</a>
-        <a href="#this" class="btn cyan" id="list" style="">목록으로</a>
-    </form>
-</div>
--->
  <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -139,6 +105,8 @@
 
 <script>
 
+	
+	
 	var template = Handlebars.compile($("#template").html());
 
 	$(".fileDrop").on("dragenter dragover", function(event) {
