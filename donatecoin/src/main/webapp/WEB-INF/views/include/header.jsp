@@ -100,19 +100,40 @@ footer.page-footer {
 					class="nav-link waves-effect waves-light" href="#"><h5>
 							<B>Doco란</B>
 						</h5></a></li>
-				<li class="nav-item nav-component-margin col"><a
+				
+				<li class="nav-item nav-component-margin dropdown col">
+					<h5>
+					<a class="nav-link dropdown-toggle " id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<B>캠페인</B></a>
+					 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+	                    <a class="dropdown-item" href="/campaign/recent">진행 중인 캠페인</a>
+	                    <a class="dropdown-item" href="/campaign/listPage">지난 캠페인</a>
+               		 </div>
+               		 </h5>		
+				</li>
+				<li class="nav-item nav-component-margin dropdown col">
+					<h5>
+					<a class="nav-link dropdown-toggle " id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<B>캠페인 문의</B></a>
+					 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+	                    <a class="dropdown-item" href="/request/register">문의하기</a>
+	                    <a class="dropdown-item" href="/request/listAll">문의 내역</a>
+               		 </div>
+               		 </h5>		
+				</li>
+				<!-- <li class="nav-item nav-component-margin col"><a
 					class="nav-link waves-effect waves-light"
 					href="/campaign/recent"><h5>
 							<span class="new badge red">new</span><B>캠페인</B>
-						</h5></a></li>
-				<li class="nav-item nav-component-margin col"><a
+						</h5></a></li> -->
+				<!-- <li class="nav-item nav-component-margin col"><a
 					class="nav-link waves-effect waves-light" href="/campaign/listPage"><h5>
 							<B>지난 캠페인</B>
-						</h5></a></li>
-				<li class="nav-item nav-component-margin col"><a
+						</h5></a></li> -->
+<!-- 				<li class="nav-item nav-component-margin col"><a
 					class="nav-link waves-effect waves-light" href="/request/register"><h5>
 							<B>캠페인 문의</B>
-						</h5></a></li>
+						</h5></a></li> -->
 				<li class="nav-item nav-component-margin col"><a
 					class="nav-link waves-effect waves-light" href="/campaign/register"><h5>
 							<B>캠페인 등록</B>
