@@ -9,12 +9,12 @@
 	<selectKey resultType="int" keyProperty="no" order="BEFORE">
 		SELECT MAX(no) FROM dtb_donation_req
 	</selectKey>
-	insert into dtb_photo(no, fullname)
-	 values (#{no}, #{fullname})
+	insert into dtb_photo(no, fullname, filename)
+	 values (#{no}, #{fullname},#{filename})
 	</insert>
 
 	<select id="readPhoto" resultType="Photo">
-		select fullname from dtb_photo 
+		select no, fullname, filename from dtb_photo 
 		where no = #{no} 
 	</select>
 	

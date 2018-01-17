@@ -1,8 +1,11 @@
 package com.doco.web;
 
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,8 +14,12 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 
+import org.apache.commons.io.IOUtils;
 import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -20,6 +27,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -46,6 +54,7 @@ public class RequestController {
 	public void registerGET() {
 		
 	}
+	
 		
 	@PostMapping("/register")
 	public String registPOST(Request request,MultipartHttpServletRequest msr, 
@@ -54,37 +63,45 @@ public class RequestController {
 		log.info(f1.getOriginalFilename());
 		log.info(f1.getContentType());
 		log.info("" + f1.getSize());
-
-		Photo photo = null;
+		
+		
+		
+		Photo photo = new Photo();
 		
 		String uuid = UUID.randomUUID().toString();
-		String uploadName = uuid + "_" + f1.getOriginalFilename();
+		String uploadName = f1.getOriginalFilename();
+		log.info("filename : "+ uploadName);
+		String fullName = "C:\\upload\\"+uuid+"_"+uploadName;
 		
 		try {
-			OutputStream out = new FileOutputStream("C:\\upload\\" +uploadName);
-			FileCopyUtils.copy(f1.getBytes(), out);
-
-			if(f1.getContentType().startsWith("image")) {
+			OutputStream out = new FileOutputStream(fullName);
+//			FileCopyUtils.copy(f1.getBytes(), out);
+			//파일 저장
+			FileCopyUtils.copy(f1.getInputStream(), out);
+				
+			/*if(f1.getContentType().startsWith("image")) {
 				model.addAttribute("isImage", f1.getContentType().startsWith("image"));
 				String uploadedName = makeThumbnail(uploadName);
-				
+				log.info("이미지아닌데 들어왔냐 왜!!");
 				photo = new Photo();
 				
-				photo.setFullname(uploadedName);
+				photo.setFullname(uploadName);
 				photo.setNo(request.getNo());
-			}
+			}*/
 
 		} catch (Exception e) {
 			log.warning(e.getMessage());
 		}
-		
+		photo.setFilename(uploadName);
+		photo.setFullname(fullName);
+		photo.setNo(request.getNo());
 		log.info("" + request);
 		//photo.setFullname(uploadName);
 		
 		String reg_date = (new SimpleDateFormat("yyyy/MM/dd HH:mm")).format( new Date() );
-		log.info("reg_date"+reg_date);
+		log.info("reg_date: "+reg_date);
 		request.setReg_date(reg_date);
-		log.info("request" + request);
+		log.info("request: " + request);
 		int registRNO = service.regist(request, photo);
 		
 		rttr.addFlashAttribute("result", "success");
@@ -134,6 +151,37 @@ public class RequestController {
 		model.addAttribute("photo",service.getPhoto(no));
 	}
 	
+	@GetMapping(value="/download")
+	@ResponseBody
+	public ResponseEntity<byte[]> downloadFile(int no) {
+	     
+	     ResponseEntity<byte[]> result = null;
+	     HttpHeaders headers = new HttpHeaders();
+	     Photo photo= service.getPhoto(no);
+	     String fullName = photo.getFullname();
+	     log.info("fullName : "+fullName);
+	     String fileName = photo.getFilename();
+	     log.info("fileName : "+fullName);
+	     
+	     try {
+	          InputStream in = new FileInputStream(fullName);
+	          ByteArrayOutputStream bos = new ByteArrayOutputStream();
+	          
+	          IOUtils.copy(in, bos);   //IOUtils도 스프링에 들어가 있음, 얘를 사용해도 무방
+	           /*headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);*/
+	          headers.add("Content-Disposition", "attachment; filename=\""+
+	               new String(fileName.getBytes("UTF-8"), "ISO-8859-1")+"\"");
+	         
+	          return new ResponseEntity<byte[]>(bos.toByteArray(), headers, HttpStatus.OK);
+	     }catch(Exception e) {
+	          e.printStackTrace();
+	     }
+	     return null;
+	}
+
+
+	
+	
 //	@GetMapping("/modify")
 //	public void modifyGET(@RequestParam(name = "no")int no, Model model) {
 //		model.addAttribute(service.read(no));
@@ -151,3 +199,7 @@ public class RequestController {
 	}
 	
 }
+
+
+
+

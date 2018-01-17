@@ -6,5 +6,5 @@ import lombok.Data;
 public class Photo {
 	
 	private int no;
-	private String fullname;
+	private String fullname,filename;
 }

@@ -120,19 +120,6 @@ footer.page-footer {
                		 </div>
                		 </h5>		
 				</li>
-				<!-- <li class="nav-item nav-component-margin col"><a
-					class="nav-link waves-effect waves-light"
-					href="/campaign/recent"><h5>
-							<span class="new badge red">new</span><B>캠페인</B>
-						</h5></a></li> -->
-				<!-- <li class="nav-item nav-component-margin col"><a
-					class="nav-link waves-effect waves-light" href="/campaign/listPage"><h5>
-							<B>지난 캠페인</B>
-						</h5></a></li> -->
-<!-- 				<li class="nav-item nav-component-margin col"><a
-					class="nav-link waves-effect waves-light" href="/request/register"><h5>
-							<B>캠페인 문의</B>
-						</h5></a></li> -->
 				<li class="nav-item nav-component-margin col"><a
 					class="nav-link waves-effect waves-light" href="/campaign/register"><h5>
 							<B>캠페인 등록</B>

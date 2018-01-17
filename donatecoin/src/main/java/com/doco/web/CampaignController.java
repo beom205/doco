@@ -70,8 +70,7 @@ public class CampaignController {
 		String savedName = uploadFile(video.getOriginalFilename(), video.getBytes());
 		
 		board.setMovieFile(savedName);
-		//동여상 끝
-		
+		//동영상 끝
 		
 		if (board.getFiles() != null) {
 			

@@ -29,14 +29,15 @@ public class RequestServiceImpl implements RequestService {
 		log.info("register");
 		mapper.create(request);
 		int pno = mapper.readRNO();
+		log.info("pno: "+pno);
 		photo.setNo(pno);
 		log.info("아아아아이럼안됨 ");
-		if(photo != null) {
+		//if(photo != null) {
 			log.info("dddd"+photo);
 			pMapper.registPhoto(photo);
-		}
+		//}
 			return pno;
-		}
+	}
 
  	@Override
 	public Request read(Integer no) {
