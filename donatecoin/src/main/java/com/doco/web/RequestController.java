@@ -13,6 +13,7 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
 import org.imgscalr.Scalr;
@@ -32,6 +33,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.doco.domain.Member;
 import com.doco.domain.Photo;
 import com.doco.domain.Request;
 import com.doco.service.RequestService;
@@ -51,14 +53,30 @@ public class RequestController {
 	
 	
 	@GetMapping("/register")
-	public void registerGET() {
+	public void registerGET(HttpSession session,Model model) {
+		
+		Member member = null;
+		member = (Member)session.getAttribute("login");
+		log.info("nickname : "+member);
+		if(member != null) {
+			log.info("닉네임은 널이 아님 name : "+ member.getName());
+			model.addAttribute("name",member.getName());
+		}
 		
 	}
 	
 		
 	@PostMapping("/register")
-	public String registPOST(Request request,MultipartHttpServletRequest msr, 
+	public String registPOST( Request request,MultipartHttpServletRequest msr, 
 			RedirectAttributes rttr, MultipartFile f1,Model model){
+		
+//		
+		
+	//	request.getS
+	//	HttpSession session = request.getSession();
+		
+		
+//		
 		
 		log.info(f1.getOriginalFilename());
 		log.info(f1.getContentType());

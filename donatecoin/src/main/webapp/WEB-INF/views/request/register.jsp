@@ -21,12 +21,14 @@
 
 		<form id='registerForm' role="form" method="post"
 			enctype="multipart/form-data">
+			
+			
 			<div class="card-body">
 				<!--Body-->
 				<div class="md-form">
 					<i class="fa fa-user prefix grey-text"></i> <input name="id"
 						type="text" id="form-name" class="form-control"
-						placeholder="캠페인 요청 단체명">
+						placeholder="캠페인 요청 단체명" value="${name}">
 				</div>
 
 				<div class="md-form">
